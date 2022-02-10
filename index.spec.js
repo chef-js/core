@@ -1,14 +1,14 @@
 "use strict";
 
 describe("GIVEN chef is provided", () => {
-  const createMockServer = async (config) => {
-    const http = require("http");
-    const server = http.createServer();
-
-    server.listen(config.port);
-
-    return server;
+  const createServer = async (_config) => {
+    return {
+      get: () => null,
+      listen: () => null,
+    };
   };
+
+  const requestHandler = () => null;
 
   it("THEN requiring the library does not throw an error", () => {
     require(".");
@@ -21,7 +21,7 @@ describe("GIVEN chef is provided", () => {
       expect(() =>
         startServer(
           { type: "uws", folder: "demo", port: 3001 },
-          createMockServer
+          { createServer, requestHandler }
         )
       ).not.toThrow();
     });
@@ -32,7 +32,7 @@ describe("GIVEN chef is provided", () => {
       expect(
         await startServer(
           { type: "uws", folder: "demo", port: 3002 },
-          createMockServer
+          { createServer, requestHandler }
         )
       ).toBeTruthy();
     });
@@ -47,7 +47,7 @@ describe("GIVEN chef is provided", () => {
           debug: true,
           port: 3003,
         },
-        createMockServer
+        { createServer, requestHandler }
       );
 
       expect(api).toBeTruthy();
@@ -65,7 +65,7 @@ describe("GIVEN chef is provided", () => {
             folder: "demo",
             port: 3004,
           },
-          createMockServer
+          { createServer, requestHandler }
         );
 
       expect(test).not.toThrow();
@@ -81,7 +81,7 @@ describe("GIVEN chef is provided", () => {
           folder: "demo",
           port: 8080,
         },
-        createMockServer
+        { createServer, requestHandler }
       );
 
       expect(server).toBeTruthy();
@@ -101,7 +101,7 @@ describe("GIVEN chef is provided", () => {
             },
           },
         },
-        createMockServer
+        { createServer, requestHandler }
       );
 
       expect(server).toBeTruthy();
