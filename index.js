@@ -1,3 +1,3 @@
-const { default: startServer } =require("./dist");
+const { default: startServer } = require("./dist");
 
 module.exports = startServer;

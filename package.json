@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "chef-js core functionalities",
   "main": "index.js",
+  "types": "./dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
     "build": "tsc",

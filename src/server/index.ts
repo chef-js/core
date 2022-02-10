@@ -10,7 +10,7 @@ export default async function startServer(
     createServer,
     requestHandler,
   }: {
-    createServer: (config: WSConfig) => Promise<WSServer>;
+    createServer: (config: WSConfig) => Promise<any>;
     requestHandler: (
       fileReaderCache: Cache
     ) => (res: any, req: any, next?: any) => void;
@@ -21,7 +21,7 @@ export default async function startServer(
   await populatePlugins(config);
 
   // create the express or uws server inside a wrapper
-  const server: WSServer = await createServer(config);
+  const server: any = await createServer(config);
 
   // create the static files reader based on folder
   const fileReader: (url: string) => any = createFileReader(config.folder);
