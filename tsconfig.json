@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "none",
+    "outDir": "dist"
+  },
+  "files": ["src/index.ts"],
+  "include": ["src/*.ts", "src/**/*.ts"],
+  "exclude": ["src/*.spec.ts", "*.js"]
+}

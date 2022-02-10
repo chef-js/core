@@ -1,0 +1,23 @@
+{
+  "name": "chef-core",
+  "version": "1.0.0",
+  "description": "chef-js core functionalities",
+  "main": "index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": "https://github.com/chef-js/core",
+  "author": "Jacek Pietal <Prozi>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "mime-types": "^2.1.34"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.17",
+    "jest": "^27.5.1",
+    "typescript": "^4.5.5"
+  }
+}
