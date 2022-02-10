@@ -26,6 +26,13 @@ yarn add chef-socket
 yarn add chef-uws
 ```
 
+## Chat
+
+```
+yarn add chef-(socket|uws)
+yarn chef-(socket|uws) folder --plugin node_modules/chef-core/chat.js
+```
+
 ## License
 
 MIT

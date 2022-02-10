@@ -1,10 +1,10 @@
 {
   "name": "chef-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "chef-js core functionalities",
   "main": "index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": ["dist", "chat.js"],
   "scripts": {
     "build": "tsc",
     "test": "jest"
