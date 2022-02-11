@@ -8,6 +8,10 @@
 
 designed for **node** written in **typescript**, with **tests**
 
+- [chef-express](https://npmjs.com/package/chef-express) — just a webserver with cache and 404s fallback to index
+- [chef-socket](https://npmjs.com/package/chef-socket) — like above, but with socket.io plugin capabilities
+- [chef-uws](https://npmjs.com/package/chef-uws) — like above, but instead of express and socket.io it uses uWebSockets.js
+
 ## Running
 
 Depending on variant you need, check readme of relevant npm package
@@ -18,19 +22,20 @@ npx chef-socket ...
 npx chef-uws ...
 ```
 
-## Install
+## Minimal Chat Demo
+
+https://chef-js-socket.herokuapp.com/
 
 ```bash
-yarn add chef-express
-yarn add chef-socket
-yarn add chef-uws
+$ yarn add chef-socket
+$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
 ```
 
-## Chat
+https://chef-js-uws.herokuapp.com/
 
-```
-yarn add chef-(socket|uws)
-yarn chef-(socket|uws) folder --plugin node_modules/chef-core/chat.js
+```bash
+$ yarn add chef-uws
+$ yarn chef-uws node_modules/chef-uws/demo --plugin node_modules/chef-core/chat.js
 ```
 
 ## License
