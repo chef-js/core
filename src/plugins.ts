@@ -9,11 +9,13 @@ export async function populatePlugins(config: WSConfig): Promise<void> {
 
   if (matches) {
     // we need to get our promises in order
-    const syncMap: Promise<any>[] = matches.map((path: string) => {
-      const [_, plugin] = path.split(" ");
+    const syncMap: Promise<{ default: WSPlugin }>[] = matches.map(
+      (path: string) => {
+        const [_, plugin] = path.split(" ");
 
-      return import(resolve(plugin));
-    });
+        return import(resolve(plugin));
+      }
+    );
 
     // so the main function awaits properly
     const plugins: { default: WSPlugin }[] = await Promise.all(syncMap);

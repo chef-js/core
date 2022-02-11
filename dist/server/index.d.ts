@@ -1,12 +1,12 @@
 import Cache from "../cache";
 import { WSConfig, WSServer } from "../types.js";
 export default function startServer(
-  userConfig: WSConfig,
+  config: WSConfig,
   {
     createServer,
     requestHandler,
   }: {
-    createServer: (config: WSConfig) => Promise<any>;
+    createServer: (config: WSConfig) => Promise<WSServer>;
     requestHandler: (
       fileReaderCache: Cache
     ) => (res: any, req: any, next?: any) => void;

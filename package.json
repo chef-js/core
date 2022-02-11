@@ -1,12 +1,13 @@
 {
   "name": "chef-core",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "chef-js core functionalities",
   "main": "index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "chat.js"
+    "chat.js",
+    "ssl"
   ],
   "keywords": [
     "nodejs",
@@ -14,9 +15,12 @@
     "cli",
     "framework",
     "typescript",
-    "nodejs-server"
+    "nodejs-server",
+    "http-server",
+    "https-server"
   ],
   "scripts": {
+    "prebuild": "rm -rf dist",
     "build": "tsc",
     "test": "jest",
     "precommit": "yarn build && npx prettier . --write"

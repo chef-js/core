@@ -1,5 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = require("path");
+const ssl = {
+  key: getParam(
+    "key",
+    (0, path_1.resolve)(__dirname, "..", "ssl", "example.key")
+  ),
+  cert: getParam(
+    "cert",
+    (0, path_1.resolve)(__dirname, "..", "ssl", "example.cert")
+  ),
+};
 const config = {
   // this enables http/ws logs
   debug: process.argv.includes("--debug"),
@@ -11,11 +22,15 @@ const config = {
   join: "/join",
   // disconnect from room event
   leave: "/leave",
-  // folder to static server files
+  // folder to static serve files
   folder: process.argv[2],
-  // type of server started
+  // type of server to start
   type: process.argv.includes("--uws") ? "uws" : "express",
   // ssl = undefined | { key, cert }
-  ssl: undefined,
+  ssl: process.argv.includes("--ssl") ? ssl : undefined,
 };
+function getParam(find, fallback) {
+  const matches = process.argv.join(" ").match(new RegExp(`--${find} ([^ ]+)`));
+  return matches ? matches[1] : fallback;
+}
 exports.default = config;

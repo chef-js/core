@@ -6,7 +6,7 @@ export default function startServer(
     createServer,
     requestHandler,
   }: {
-    createServer: (config: WSConfig) => Promise<any>;
+    createServer: (config: WSConfig) => Promise<WSServer>;
     requestHandler: (
       fileReaderCache: Cache
     ) => (res: any, req: any, next?: any) => void;

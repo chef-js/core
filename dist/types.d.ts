@@ -5,6 +5,7 @@ export declare type WSServer = {
   post: (path: string, cb: WSGet) => any;
   any: (path: string, cb: WSGet) => any;
   listen: (port: number) => any;
+  config?: WSConfig;
 };
 export declare type WSEvent = {
   id: string;
