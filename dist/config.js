@@ -15,5 +15,7 @@ const config = {
   folder: process.argv[2],
   // type of server started
   type: process.argv.includes("--uws") ? "uws" : "express",
+  // ssl = undefined | { key, cert }
+  ssl: undefined,
 };
 exports.default = config;

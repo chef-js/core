@@ -18,14 +18,18 @@ export declare type WSFileReaderResponse = {
   status: number;
 };
 export declare type WSConfig = {
-  debug: boolean;
   port: number;
+  folder: string;
+  join: string;
+  leave: string;
+  type: string;
+  debug: boolean;
   plugins: {
     [plugin: string]: WSPlugin;
   };
-  join: string;
-  leave: string;
-  folder: string;
-  type: string;
+  ssl?: {
+    key: string;
+    cert: string;
+  };
 };
 //# sourceMappingURL=types.d.ts.map

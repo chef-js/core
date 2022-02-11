@@ -1,11 +1,11 @@
 import Cache from "../cache";
 import createFileReader from "./static-files.js";
-import { WSConfig, WSServer } from "../types.js";
+import { WSConfig, WSFileReaderResponse, WSServer } from "../types.js";
 import { populatePlugins } from "../plugins";
 import baseConfig from "../config.js";
 
 export default async function startServer(
-  userConfig: any = {},
+  userConfig: WSConfig,
   {
     createServer,
     requestHandler,
@@ -24,7 +24,9 @@ export default async function startServer(
   const server: any = await createServer(config);
 
   // create the static files reader based on folder
-  const fileReader: (url: string) => any = createFileReader(config.folder);
+  const fileReader: (url: string) => WSFileReaderResponse = createFileReader(
+    config.folder
+  );
 
   // and create a cache for above
   const fileReaderCache: Cache = new Cache(fileReader);

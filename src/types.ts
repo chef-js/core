@@ -22,11 +22,12 @@ export type WSFileReaderResponse = {
 };
 
 export type WSConfig = {
-  debug: boolean;
   port: number;
-  plugins: { [plugin: string]: WSPlugin };
+  folder: string;
   join: string;
   leave: string;
-  folder: string;
   type: string;
+  debug: boolean;
+  plugins: { [plugin: string]: WSPlugin };
+  ssl?: { key: string; cert: string };
 };

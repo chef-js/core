@@ -5,7 +5,7 @@ import { WSConfig, WSServer } from "./types.js";
 
 // dynamically start server
 export default async function startServer(
-  userConfig: any = {},
+  userConfig: WSConfig,
   {
     createServer,
     requestHandler,

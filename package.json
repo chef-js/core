@@ -1,6 +1,6 @@
 {
   "name": "chef-core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "chef-js core functionalities",
   "main": "index.js",
   "types": "./dist/index.d.ts",
@@ -10,9 +10,10 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "precommit": "yarn build && npx prettier . --write"
   },
-  "repository": "https://github.com/chef-js/core",
+  "repository": "git://github.com/chef-js/core.git",
   "author": "Jacek Pietal <Prozi>",
   "license": "MIT",
   "private": false,

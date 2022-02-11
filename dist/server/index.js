@@ -9,7 +9,7 @@ const cache_1 = __importDefault(require("../cache"));
 const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
 const config_js_1 = __importDefault(require("../config.js"));
-async function startServer(userConfig = {}, { createServer, requestHandler }) {
+async function startServer(userConfig, { createServer, requestHandler }) {
   const config = { ...config_js_1.default, ...userConfig };
   await (0, plugins_1.populatePlugins)(config);
   // create the express or uws server inside a wrapper

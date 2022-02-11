@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const config_js_1 = __importDefault(require("./config.js"));
 const server_1 = __importDefault(require("./server"));
 // dynamically start server
-async function startServer(userConfig = {}, { createServer, requestHandler }) {
+async function startServer(userConfig, { createServer, requestHandler }) {
   // merge configurations
   const config = { ...config_js_1.default, ...userConfig };
   // dynamically create wrapped compatible express or uws server
