@@ -16,7 +16,7 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN it is instantiated", () => {
     it("THEN it should initialize without throwing error", () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
 
       expect(() =>
         startServer(
@@ -27,7 +27,7 @@ describe("GIVEN chef is provided", () => {
     });
 
     it("THEN initialization should return a truthy instance", async () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
 
       expect(
         await startServer(
@@ -40,7 +40,7 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized in debug mode", () => {
     it("THEN it should not throw error", async () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
       const api = await startServer(
         {
           folder: "demo",
@@ -56,7 +56,7 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef.serve is run on demo folder", () => {
     it("THEN it should not throw error", async () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
       const test = async () =>
         await startServer(
           {
@@ -74,7 +74,7 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized on specified port", () => {
     it("THEN it should start without error", async () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
       const server = await startServer(
         {
           type: "uws",
@@ -90,7 +90,7 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized with plugin", () => {
     it("THEN it should start without error", async () => {
-      const { default: startServer } = require("./dist");
+      const startServer = require(".");
       const server = await startServer(
         {
           folder: "demo",
