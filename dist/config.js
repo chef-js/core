@@ -8,7 +8,7 @@ const ssl = {
   ),
   cert: getParam(
     "cert",
-    (0, path_1.resolve)(__dirname, "..", "ssl", "example.cert")
+    (0, path_1.resolve)(__dirname, "..", "ssl", "example.crt")
   ),
 };
 const config = {

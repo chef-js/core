@@ -3,7 +3,7 @@ import { resolve } from "path";
 
 const ssl: { key: string; cert: string } = {
   key: getParam("key", resolve(__dirname, "..", "ssl", "example.key")),
-  cert: getParam("cert", resolve(__dirname, "..", "ssl", "example.cert")),
+  cert: getParam("cert", resolve(__dirname, "..", "ssl", "example.crt")),
 };
 
 const config: WSConfig = {
