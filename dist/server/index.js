@@ -20,7 +20,7 @@ async function startServer(config, { createServer, requestHandler }) {
   // and create a cache for above
   const fileReaderCache = new cache_1.default(fileReader);
   // give library consumer one frame to setup his own routes
-  process.nextTick(() => {
+  setTimeout(() => {
     // everything goes to the reader
     server.get("/*", requestHandler(fileReaderCache));
   });

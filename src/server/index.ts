@@ -33,7 +33,7 @@ export default async function startServer(
   const fileReaderCache: Cache = new Cache(fileReader);
 
   // give library consumer one frame to setup his own routes
-  process.nextTick(() => {
+  setTimeout(() => {
     // everything goes to the reader
     server.get("/*", requestHandler(fileReaderCache));
   });
