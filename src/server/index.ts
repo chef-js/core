@@ -32,8 +32,11 @@ export default async function startServer(
   // and create a cache for above
   const fileReaderCache: Cache = new Cache(fileReader);
 
-  // everything goes to the reader
-  server.get("/*", requestHandler(fileReaderCache));
+  // give library consumer one frame to setup his own routes
+  process.nextTick(() => {
+    // everything goes to the reader
+    server.get("/*", requestHandler(fileReaderCache));
+  });
 
   // make server listen on process.env.PORT || 4200
   await server.listen(config.port);

@@ -19,8 +19,11 @@ async function startServer(config, { createServer, requestHandler }) {
   const fileReader = (0, static_files_js_1.default)(config.folder);
   // and create a cache for above
   const fileReaderCache = new cache_1.default(fileReader);
-  // everything goes to the reader
-  server.get("/*", requestHandler(fileReaderCache));
+  // give library consumer one frame to setup his own routes
+  process.nextTick(() => {
+    // everything goes to the reader
+    server.get("/*", requestHandler(fileReaderCache));
+  });
   // make server listen on process.env.PORT || 4200
   await server.listen(config.port);
   // finally
