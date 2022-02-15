@@ -1,7 +1,7 @@
 import Cache from "./cache";
 import { WSConfig, WSServer } from "./types.js";
 export default function startServer(
-  userConfig: WSConfig,
+  userConfig: Partial<WSConfig>,
   {
     createServer,
     requestHandler,
