@@ -54,7 +54,7 @@ describe("GIVEN chef is provided", () => {
     });
   });
 
-  describe("WHEN chef.serve is run on demo folder", () => {
+  describe("WHEN chef is run on demo folder", () => {
     it("THEN it should not throw error", async () => {
       const startServer = require(".");
       const test = async () =>
@@ -100,6 +100,27 @@ describe("GIVEN chef is provided", () => {
               done();
             },
           },
+        },
+        { createServer, requestHandler }
+      );
+
+      expect(server).toBeTruthy();
+    });
+  });
+
+  describe("WHEN chef is initialized with shimmed plugin", () => {
+    it("THEN it should start without error", async () => {
+      const startServer = require(".");
+      const shim = require("./shim");
+      const chat = shim("chat", {
+        initialize: (io) => console.log(io),
+        handshake: (ws, event) => console.log(ws, event),
+      });
+      const server = await startServer(
+        {
+          folder: "demo",
+          port: 4201,
+          plugins: { chat },
         },
         { createServer, requestHandler }
       );

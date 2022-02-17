@@ -8,13 +8,31 @@
 
 designed for **node** written in **typescript**, with **tests**
 
+this is a **core dependency** package used in 3 flavors:
+
 - [chef-express](https://npmjs.com/package/chef-express) — just a webserver with cache and 404s fallback to index
 - [chef-socket](https://npmjs.com/package/chef-socket) — like above, but with socket.io plugin capabilities
 - [chef-uws](https://npmjs.com/package/chef-uws) — like above, but instead of express and socket.io it uses uWebSockets.js
 
+## Minimal Chat Demo
+
+https://chef-js-socket.herokuapp.com/
+
+```bash
+$ yarn add chef-socket
+$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+```
+
+https://chef-js-uws.herokuapp.com/
+
+```bash
+$ yarn add chef-uws
+$ yarn chef-uws node_modules/chef-uws/demo --plugin node_modules/chef-core/chat.js
+```
+
 ## Running
 
-Depending on variant you need, check readme of relevant npm package
+depending on variant you need, check readme of relevant npm package
 
 ```bash
 npx chef-express ...
@@ -24,8 +42,13 @@ npx chef-uws ...
 
 ## Config
 
+you can read the default config by
+
 ```ts
-{
+const config = require("chef-core/config");
+
+// above is the same as
+const config = {
   // this enables http/ws logs
   debug: process.argv.includes("--debug"),
   // port on which the server listens
@@ -42,23 +65,38 @@ npx chef-uws ...
   type: process.argv.includes("--uws") ? "uws" : "express",
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
-}
+};
 ```
 
-## Minimal Chat Demo
+or check resulting `server.config` after it is started
 
-https://chef-js-socket.herokuapp.com/
+## Plugins
 
-```bash
-$ yarn add chef-socket
-$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+```ts
+const chef = require("chef-socket"); // or chef-uws
+const chat = require("chef-core/chat");
+
+chef({ plugins: { chat } }).then((server) => {
+  console.log(server.config);
+});
 ```
 
-https://chef-js-uws.herokuapp.com/
+## Shim
 
-```bash
-$ yarn add chef-uws
-$ yarn chef-uws node_modules/chef-uws/demo --plugin node_modules/chef-core/chat.js
+you can use `{ initialize, handshake }` format for plugins too
+
+```ts
+const chef = require("chef-socket"); // or chef-uws
+const shim = require("chef-core/shim");
+
+const example = shim("example", {
+  initialize: (io) => console.log("chat initialized"),
+  handshake: (socket) => console.log("socket handshaken"),
+});
+
+chef({ plugins: { example } }).then((server) => {
+  console.log(server.config);
+});
 ```
 
 ## License
