@@ -1,6 +1,6 @@
 {
   "name": "chef-core",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "chef-js core functionalities",
   "main": "index.js",
   "types": "./dist/index.d.ts",
@@ -8,6 +8,8 @@
     "dist",
     "demo",
     "chat.js",
+    "config.js",
+    "shim.js",
     "ssl"
   ],
   "keywords": [
