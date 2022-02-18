@@ -30,7 +30,7 @@ export default function shim(
         ws.handshaken = true;
 
         if (!ws.on) {
-          ws.events = [];
+          ws.events = {};
 
           ws.on = (event: string, callback: WSPlugin) => {
             if (!ws.events[event]) {

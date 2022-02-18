@@ -20,7 +20,7 @@ function shim(name, plugin) {
       if (!ws.handshaken) {
         ws.handshaken = true;
         if (!ws.on) {
-          ws.events = [];
+          ws.events = {};
           ws.on = (event, callback) => {
             if (!ws.events[event]) {
               ws.events[event] = [];
