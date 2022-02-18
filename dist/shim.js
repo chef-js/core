@@ -20,6 +20,7 @@ function shim(name, plugin) {
       if (!ws.handshaken) {
         ws.handshaken = true;
         if (!ws.on) {
+          ws.events = [];
           ws.on = (event, callback) => {
             if (!ws.events[event]) {
               ws.events[event] = [];
@@ -36,7 +37,7 @@ function shim(name, plugin) {
           plugin.handshake.call(this, ws, { id, event, data });
         }
       }
-      const callbacks = ws.events[event];
+      const callbacks = ws.events && ws.events[event];
       if (callbacks) {
         callbacks.forEach((callback) =>
           callback.call(this, ws, { id, event, data })

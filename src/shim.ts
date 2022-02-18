@@ -30,6 +30,8 @@ export default function shim(
         ws.handshaken = true;
 
         if (!ws.on) {
+          ws.events = [];
+
           ws.on = (event: string, callback: WSPlugin) => {
             if (!ws.events[event]) {
               ws.events[event] = [];
@@ -50,7 +52,7 @@ export default function shim(
         }
       }
 
-      const callbacks: WSPlugin[] | undefined = ws.events[event];
+      const callbacks: WSPlugin[] | undefined = ws.events && ws.events[event];
 
       if (callbacks) {
         callbacks.forEach((callback: WSPlugin) =>
