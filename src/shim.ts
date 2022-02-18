@@ -56,7 +56,7 @@ export default function shim(
 
       if (callbacks) {
         callbacks.forEach((callback: WSPlugin) =>
-          callback.call(this, ws, { id, event, data })
+          callback.call(this, { id, event, data })
         );
       }
     },

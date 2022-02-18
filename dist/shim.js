@@ -40,7 +40,7 @@ function shim(name, plugin) {
       const callbacks = ws.events && ws.events[event];
       if (callbacks) {
         callbacks.forEach((callback) =>
-          callback.call(this, ws, { id, event, data })
+          callback.call(this, { id, event, data })
         );
       }
     },
