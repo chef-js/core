@@ -1,14 +1,14 @@
-import { WSEvent, WSPlugin } from "./types";
+import { WSEvent, WSPlugin, WSServer, WSSocket } from "./types";
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
- * @returns {function}
+ * @returns {WSPlugin}
  */
 export default function shim(
   name: string,
   plugin: {
-    initialize: (server: any) => void;
-    handshake: (ws: any, event: WSEvent) => void;
+    initialize: (server: WSServer) => void;
+    handshake: (ws: WSSocket, event: WSEvent) => void;
     initialized?: boolean;
   }
 ): WSPlugin;

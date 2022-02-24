@@ -1,8 +1,19 @@
 import Cache from "../cache";
 import createFileReader from "./static-files.js";
-import { WSConfig, WSFileReaderResponse, WSServer } from "../types.js";
+import {
+  WSConfig,
+  WSFileReaderResponse,
+  WSRequest,
+  WSServer,
+} from "../types.js";
 import { populatePlugins } from "../plugins";
 
+/**
+ * this is either
+ * @param {object} config
+ * @param {object} core_consumer
+ * @returns {WSServer}
+ */
 export default async function startServer(
   config: WSConfig,
   {
@@ -10,9 +21,7 @@ export default async function startServer(
     requestHandler,
   }: {
     createServer: (config: WSConfig) => Promise<WSServer>;
-    requestHandler: (
-      fileReaderCache: Cache
-    ) => (res: any, req: any, next?: any) => void;
+    requestHandler: (fileReaderCache: Cache) => WSRequest;
   }
 ): Promise<WSServer> {
   // polulate config.plugins by requiring optional files
@@ -39,7 +48,7 @@ export default async function startServer(
   });
 
   // make server listen on process.env.PORT || 4200
-  await server.listen(config.port);
+  await server.start(config.port);
 
   // finally
   return server;

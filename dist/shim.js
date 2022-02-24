@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
- * @returns {function}
+ * @returns {WSPlugin}
  */
 function shim(name, plugin) {
+  // this js hack sets function name
   const object = {
-    // this js hack sets function name
     [name]: function (ws, { id, event, data }) {
       // once per plugin
       if (!plugin.initialized) {

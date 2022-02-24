@@ -8,6 +8,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cache_1 = __importDefault(require("../cache"));
 const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
+/**
+ * this is either
+ * @param {object} config
+ * @param {object} core_consumer
+ * @returns {WSServer}
+ */
 async function startServer(config, { createServer, requestHandler }) {
   // polulate config.plugins by requiring optional files
   await (0, plugins_1.populatePlugins)(config);
@@ -25,7 +31,7 @@ async function startServer(config, { createServer, requestHandler }) {
     server.get("/*", requestHandler(fileReaderCache));
   });
   // make server listen on process.env.PORT || 4200
-  await server.listen(config.port);
+  await server.start(config.port);
   // finally
   return server;
 }

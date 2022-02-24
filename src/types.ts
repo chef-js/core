@@ -1,11 +1,8 @@
-export type WSGet = (res: any, req: any, next?: any) => any;
+// to allow declaration without including libraries with types
+type WSProp = ((...args: any[]) => any) | any | any[];
 
-export type WSServer = {
-  get: (path: string, cb: WSGet) => any;
-  post: (path: string, cb: WSGet) => any;
-  any: (path: string, cb: WSGet) => any;
-  listen: (port: number) => any;
-  config?: WSConfig;
+type uWS_WebSocket = {
+  [prop: string]: WSProp;
 };
 
 export type WSEvent = {
@@ -14,7 +11,21 @@ export type WSEvent = {
   data?: any;
 };
 
-export type WSPlugin = (ws: WebSocket | any, event: WSEvent) => void;
+export type WSSocket = WebSocket | uWS_WebSocket;
+
+export type WSPlugin = (ws: WSSocket, event: WSEvent) => void;
+
+export type WSServer = {
+  start: (port: number) => Promise<WSServer>;
+  config: WSConfig;
+  [prop: string]: WSProp;
+};
+
+export type WSRequest = (
+  resOrReq: object | any,
+  reqOrRes: object | any,
+  next?: () => void
+) => void;
 
 export type WSFileReaderResponse = {
   mime: string;

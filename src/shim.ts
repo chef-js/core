@@ -1,21 +1,24 @@
-import { WSEvent, WSPlugin } from "./types";
+import { WSEvent, WSPlugin, WSServer, WSSocket } from "./types";
 
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
- * @returns {function}
+ * @returns {WSPlugin}
  */
 export default function shim(
   name: string,
   plugin: {
-    initialize: (server: any) => void;
-    handshake: (ws: any, event: WSEvent) => void;
+    initialize: (server: WSServer) => void;
+    handshake: (ws: WSSocket, event: WSEvent) => void;
     initialized?: boolean;
   }
 ): WSPlugin {
+  // this js hack sets function name
   const object = {
-    // this js hack sets function name
-    [name]: function (ws: any, { id, event, data }: WSEvent) {
+    [name]: function (
+      ws: WSSocket & { [prop: string]: any },
+      { id, event, data }: WSEvent
+    ) {
       // once per plugin
       if (!plugin.initialized) {
         plugin.initialized = true;
@@ -42,7 +45,7 @@ export default function shim(
         }
 
         if (!ws.emit) {
-          ws.emit = (event: string, data: any) => {
+          ws.emit = (event: string, data?: any) => {
             ws.send(JSON.stringify({ id, event, data }));
           };
         }

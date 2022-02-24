@@ -1,7 +1,7 @@
 import Cache from "./cache";
 import baseConfig from "./config.js";
 import wrapServer from "./server";
-import { WSConfig, WSServer } from "./types.js";
+import { WSConfig, WSRequest, WSServer } from "./types.js";
 
 // dynamically start server
 export default async function startServer(
@@ -11,13 +11,12 @@ export default async function startServer(
     requestHandler,
   }: {
     createServer: (config: WSConfig) => Promise<WSServer>;
-    requestHandler: (
-      fileReaderCache: Cache
-    ) => (res: any, req: any, next?: any) => void;
+    requestHandler: (fileReaderCache: Cache) => WSRequest;
   }
 ): Promise<WSServer> {
   // merge configurations
   const config: WSConfig = { ...baseConfig, ...userConfig };
+
   // dynamically create wrapped compatible express or uws server
   const server: WSServer = await wrapServer(config, {
     createServer,

@@ -46,8 +46,11 @@ you can read the default config by
 
 ```ts
 const config = require("chef-core/config");
+```
 
-// above is the same as
+or declare omiting the defaults that suit you, as below
+
+```ts
 const config = {
   // this enables http/ws logs
   debug: process.argv.includes("--debug"),
@@ -68,7 +71,7 @@ const config = {
 };
 ```
 
-or check resulting `server.config` after it is started
+or check resulting `server.config` after server has started
 
 ## Plugins
 
@@ -90,8 +93,18 @@ const chef = require("chef-socket"); // or chef-uws
 const shim = require("chef-core/shim");
 
 const example = shim("example", {
-  initialize: (io) => console.log("chat initialized"),
-  handshake: (socket) => console.log("socket handshaken"),
+  initialize: (io) => {
+    // initialize your game, this happens once
+    console.log("example plugin initialized");
+  },
+  handshake: (socket) => {
+    // this happens once per socket, on connection
+    console.log("socket connected");
+
+    socket.on("event", ({ id, event, data }) => {
+      // do something with an event
+    });
+  },
 });
 
 chef({ plugins: { example } }).then((server) => {

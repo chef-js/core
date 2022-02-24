@@ -2,10 +2,12 @@
 
 describe("GIVEN chef is provided", () => {
   const createServer = async (_config) => {
-    return {
+    const mockServer = {
+      start: () => mockServer,
       get: () => null,
-      listen: () => null,
     };
+
+    return mockServer;
   };
 
   const requestHandler = () => null;

@@ -1,18 +1,25 @@
 /// <reference types="node" />
-export declare type WSGet = (res: any, req: any, next?: any) => any;
-export declare type WSServer = {
-  get: (path: string, cb: WSGet) => any;
-  post: (path: string, cb: WSGet) => any;
-  any: (path: string, cb: WSGet) => any;
-  listen: (port: number) => any;
-  config?: WSConfig;
+declare type WSProp = ((...args: any[]) => any) | any | any[];
+declare type uWS_WebSocket = {
+  [prop: string]: WSProp;
 };
 export declare type WSEvent = {
   id: string;
   event: string;
   data?: any;
 };
-export declare type WSPlugin = (ws: WebSocket | any, event: WSEvent) => void;
+export declare type WSSocket = WebSocket | uWS_WebSocket;
+export declare type WSPlugin = (ws: WSSocket, event: WSEvent) => void;
+export declare type WSServer = {
+  start: (port: number) => Promise<WSServer>;
+  config: WSConfig;
+  [prop: string]: WSProp;
+};
+export declare type WSRequest = (
+  resOrReq: object | any,
+  reqOrRes: object | any,
+  next?: () => void
+) => void;
 export declare type WSFileReaderResponse = {
   mime: string;
   body: string | Buffer;
@@ -33,4 +40,5 @@ export declare type WSConfig = {
     cert: string;
   };
 };
+export {};
 //# sourceMappingURL=types.d.ts.map
