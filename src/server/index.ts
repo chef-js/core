@@ -20,8 +20,8 @@ export default async function startServer(
     createServer,
     requestHandler,
   }: {
-    createServer: (config: WSConfig) => Promise<WSServer>;
-    requestHandler: (fileReaderCache: Cache) => WSRequest;
+    createServer(config: WSConfig): Promise<WSServer>;
+    requestHandler(fileReaderCache: Cache): WSRequest;
   }
 ): Promise<WSServer> {
   // polulate config.plugins by requiring optional files

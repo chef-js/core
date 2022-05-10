@@ -1,6 +1,6 @@
 import { join } from "path";
 import { lookup } from "mime-types";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, lstatSync, readFileSync } from "fs";
 import { WSFileReaderResponse } from "../types";
 
 export default function createFileReader(
@@ -13,20 +13,13 @@ export default function createFileReader(
 
   // this is used as file reader cache
   return function fileReader(url: string): WSFileReaderResponse {
-    const mime: string | false = lookup(url);
+    const mime: string = lookup(url) || "application/octet-stream";
     const filename: string = join(folder, url);
 
-    // folder?
-    if (!mime) {
-      return fileReader(`${url}/index.html`.replace(/\/\//g, "/"));
+    if (!existsSync(filename) || lstatSync(filename).isDirectory()) {
+      return { mime: "text/html", body: index, status: 301 };
     }
 
-    if (existsSync(filename)) {
-      const body = readFileSync(filename);
-
-      return { mime, body, status: 200 };
-    }
-
-    return { mime, body: index, status: 301 };
+    return { mime, body: readFileSync(filename), status: 200 };
   };
 }

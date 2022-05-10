@@ -12,17 +12,15 @@ function createFileReader(folder = "") {
     : "";
   // this is used as file reader cache
   return function fileReader(url) {
-    const mime = (0, mime_types_1.lookup)(url);
+    const mime = (0, mime_types_1.lookup)(url) || "application/octet-stream";
     const filename = (0, path_1.join)(folder, url);
-    // folder?
-    if (!mime) {
-      return fileReader(`${url}/index.html`.replace(/\/\//g, "/"));
+    if (
+      !(0, fs_1.existsSync)(filename) ||
+      (0, fs_1.lstatSync)(filename).isDirectory()
+    ) {
+      return { mime: "text/html", body: index, status: 301 };
     }
-    if ((0, fs_1.existsSync)(filename)) {
-      const body = (0, fs_1.readFileSync)(filename);
-      return { mime, body, status: 200 };
-    }
-    return { mime, body: index, status: 301 };
+    return { mime, body: (0, fs_1.readFileSync)(filename), status: 200 };
   };
 }
 exports.default = createFileReader;
