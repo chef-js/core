@@ -16,8 +16,12 @@ export default function createFileReader(
     const mime: string = lookup(url) || "application/octet-stream";
     const filename: string = join(folder, url);
 
-    if (!existsSync(filename) || lstatSync(filename).isDirectory()) {
+    if (!existsSync(filename)) {
       return { mime: "text/html", body: index, status: 301 };
+    }
+
+    if (lstatSync(filename).isDirectory()) {
+      return fileReader(`${url}/index.html`);
     }
 
     return { mime, body: readFileSync(filename), status: 200 };
