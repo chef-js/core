@@ -17,7 +17,7 @@ export default function createFileReader(
     const filename: string = join(folder, url);
 
     if (!existsSync(filename)) {
-      return { mime: "text/html", body: index, status: 301 };
+      return { mime: "text/html", body: index, status: 200 };
     }
 
     if (lstatSync(filename).isDirectory()) {
