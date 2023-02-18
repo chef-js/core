@@ -23,6 +23,8 @@ const config: WSConfig = {
   type: process.argv.includes("--uws") ? "uws" : "express",
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
+  // max cache size prevents oom
+  maxCacheSize: 128,
 };
 
 function getParam(find: string, fallback: string): string {

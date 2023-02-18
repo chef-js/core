@@ -52,9 +52,11 @@ async function populatePlugins(config) {
   if (matches) {
     // we need to get our promises in order
     const syncMap = matches.map((path) => {
+      var _a;
       const [_, plugin] = path.split(" ");
-      return Promise.resolve().then(() =>
-        __importStar(require((0, path_1.resolve)(plugin)))
+      return (
+        (_a = (0, path_1.resolve)(plugin)),
+        Promise.resolve().then(() => __importStar(require(_a)))
       );
     });
     // so the main function awaits properly

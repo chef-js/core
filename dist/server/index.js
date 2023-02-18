@@ -5,7 +5,7 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-const cache_1 = __importDefault(require("../cache"));
+const latermom_1 = require("latermom");
 const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
 /**
@@ -24,7 +24,7 @@ async function startServer(config, { createServer, requestHandler }) {
   // create the static files reader based on folder
   const fileReader = (0, static_files_js_1.default)(config.folder);
   // and create a cache for above
-  const fileReaderCache = new cache_1.default(fileReader);
+  const fileReaderCache = new latermom_1.Cache(fileReader, config.maxCacheSize);
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader

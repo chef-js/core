@@ -42,4 +42,5 @@ export type WSConfig = {
   debug: boolean;
   plugins: { [plugin: string]: WSPlugin };
   ssl?: { key: string; cert: string };
+  maxCacheSize: number;
 };

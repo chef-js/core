@@ -1,4 +1,4 @@
-import Cache from "./cache";
+import { Cache } from "latermom";
 import baseConfig from "./config.js";
 import wrapServer from "./server";
 import { WSConfig, WSRequest, WSServer } from "./types.js";

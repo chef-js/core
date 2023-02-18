@@ -1,4 +1,4 @@
-import Cache from "./cache";
+import { Cache } from "latermom";
 import { WSConfig, WSRequest, WSServer } from "./types.js";
 export default function startServer(
   userConfig: Partial<WSConfig>,

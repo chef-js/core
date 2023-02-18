@@ -28,6 +28,8 @@ const config = {
   type: process.argv.includes("--uws") ? "uws" : "express",
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
+  // max cache size prevents oom
+  maxCacheSize: 128,
 };
 function getParam(find, fallback) {
   const matches = process.argv.join(" ").match(new RegExp(`--${find} ([^ ]+)`));

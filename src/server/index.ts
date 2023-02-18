@@ -1,4 +1,4 @@
-import Cache from "../cache";
+import { Cache } from "latermom";
 import createFileReader from "./static-files.js";
 import {
   WSConfig,
@@ -39,7 +39,7 @@ export default async function startServer(
   );
 
   // and create a cache for above
-  const fileReaderCache: Cache = new Cache(fileReader);
+  const fileReaderCache: Cache = new Cache(fileReader, config.maxCacheSize);
 
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
