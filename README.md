@@ -68,6 +68,8 @@ const config = {
   type: process.argv.includes("--uws") ? "uws" : "express",
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
+  // max cache size
+  maxCacheSize: 128
 };
 ```
 
