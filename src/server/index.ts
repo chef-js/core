@@ -17,7 +17,7 @@ import { populatePlugins } from "../plugins";
  * @returns {WSServer}
  */
 export async function chef(
-  config: WSConfig,
+  config: Partial<WSConfig>,
   { createServer, requestHandler }: WSCoreConsumer
 ): Promise<WSServer> {
   const mergedConfig: WSConfig = { ...baseConfig, ...config };
