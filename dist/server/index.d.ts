@@ -5,5 +5,8 @@ import { WSConfig, WSServer, WSCoreConsumer } from "../types.js";
  * @param {WSCoreConsumer} coreConsumer
  * @returns {WSServer}
  */
-export declare function chef(config: Partial<WSConfig>, { createServer, requestHandler }: WSCoreConsumer): Promise<WSServer>;
+export declare function chef(
+  config: Partial<WSConfig>,
+  { createServer, requestHandler }: WSCoreConsumer
+): Promise<WSServer>;
 //# sourceMappingURL=index.d.ts.map
