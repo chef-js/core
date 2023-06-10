@@ -25,12 +25,14 @@ $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core
 
 https://chef-js-uws.herokuapp.com/
 
-https://chef-js.github.io/core/
-
 ```bash
 $ yarn add chef-uws
 $ yarn chef-uws node_modules/chef-uws/demo --plugin node_modules/chef-core/chat.js
 ```
+
+## API
+
+https://chef-js.github.io/core/
 
 ## Running
 
