@@ -69,7 +69,7 @@ const config = {
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
   // max cache size
-  maxCacheSize: 128
+  maxCacheSize: 128,
 };
 ```
 

@@ -1,19 +1,12 @@
-import { Cache } from "latermom";
-import { WSConfig, WSRequest, WSServer } from "../types.js";
+import { WSConfig, WSServer, WSCoreConsumer } from "../types.js";
 /**
  * this is either
- * @param {object} config
- * @param {object} core_consumer
+ * @param {WSConfig} config
+ * @param {WSCoreConsumer} coreConsumer
  * @returns {WSServer}
  */
-export default function startServer(
+export declare function chef(
   config: WSConfig,
-  {
-    createServer,
-    requestHandler,
-  }: {
-    createServer(config: WSConfig): Promise<WSServer>;
-    requestHandler(fileReaderCache: Cache): WSRequest;
-  }
+  { createServer, requestHandler }: WSCoreConsumer
 ): Promise<WSServer>;
 //# sourceMappingURL=index.d.ts.map

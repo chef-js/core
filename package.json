@@ -1,8 +1,8 @@
 {
   "name": "chef-core",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "chef-js core functionalities",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
@@ -25,8 +25,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
+    "build:docs": "typedoc --customCss typedoc.css",
     "test": "jest",
-    "precommit": "yarn build && prettier . --write"
+    "precommit": "yarn build && yarn build:docs && prettier . --write"
   },
   "repository": "git://github.com/chef-js/core.git",
   "author": "Jacek Pietal <Prozi>",
@@ -38,9 +39,10 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.1",
-    "@types/node": "^18.14.0",
-    "jest": "^29.4.3",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5"
+    "@types/node": "^20.2.6",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.3"
   }
 }

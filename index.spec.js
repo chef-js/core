@@ -18,10 +18,10 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN it is instantiated", () => {
     it("THEN it should initialize without throwing error", () => {
-      const startServer = require(".");
+      const { chef } = require(".");
 
       expect(() =>
-        startServer(
+        chef(
           { type: "uws", folder: "demo", port: 3001 },
           { createServer, requestHandler }
         )
@@ -29,10 +29,10 @@ describe("GIVEN chef is provided", () => {
     });
 
     it("THEN initialization should return a truthy instance", async () => {
-      const startServer = require(".");
+      const { chef } = require(".");
 
       expect(
-        await startServer(
+        await chef(
           { type: "uws", folder: "demo", port: 3002 },
           { createServer, requestHandler }
         )
@@ -42,8 +42,8 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized in debug mode", () => {
     it("THEN it should not throw error", async () => {
-      const startServer = require(".");
-      const api = await startServer(
+      const { chef } = require(".");
+      const api = await chef(
         {
           folder: "demo",
           debug: true,
@@ -58,9 +58,9 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is run on demo folder", () => {
     it("THEN it should not throw error", async () => {
-      const startServer = require(".");
+      const { chef } = require(".");
       const test = async () =>
-        await startServer(
+        await chef(
           {
             type: "uws",
             debug: true,
@@ -76,8 +76,8 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized on specified port", () => {
     it("THEN it should start without error", async () => {
-      const startServer = require(".");
-      const server = await startServer(
+      const { chef } = require(".");
+      const server = await chef(
         {
           type: "uws",
           folder: "demo",
@@ -92,8 +92,8 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized with plugin", () => {
     it("THEN it should start without error", async () => {
-      const startServer = require(".");
-      const server = await startServer(
+      const { chef } = require(".");
+      const server = await chef(
         {
           folder: "demo",
           port: 4200,
@@ -112,13 +112,13 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized with shimmed plugin", () => {
     it("THEN it should start without error", async () => {
-      const startServer = require(".");
+      const { chef } = require(".");
       const shim = require("./shim");
       const chat = shim("chat", {
         initialize: (io) => console.log(io),
         handshake: (ws, event) => console.log(ws, event),
       });
-      const server = await startServer(
+      const server = await chef(
         {
           folder: "demo",
           port: 4201,

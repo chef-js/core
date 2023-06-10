@@ -1,8 +1,8 @@
 // to allow declaration without including libraries with types
-type WSProp = ((...args: any[]) => any) | any | any[];
+export type WSProp = ((...args: any[]) => any) | any | any[];
 
-type uWS_WebSocket = {
-  [prop: string]: WSProp;
+export type uWS_WebSocket = {
+  [property: string]: WSProp;
 };
 
 export type WSEvent = {
@@ -13,17 +13,17 @@ export type WSEvent = {
 
 export type WSSocket = WebSocket | uWS_WebSocket;
 
-export type WSPlugin = (ws: WSSocket, event: WSEvent) => void;
+export type WSPlugin = (websocket: WSSocket, event: WSEvent) => void;
 
 export type WSServer = {
   start: (port: number) => Promise<WSServer>;
   config: WSConfig;
-  [prop: string]: WSProp;
+  [property: string]: WSProp;
 };
 
 export type WSRequest = (
-  resOrReq: object | any,
-  reqOrRes: object | any,
+  responseOnRequest: object | any,
+  requestOrResponse: object | any,
   next?: () => void
 ) => void;
 
@@ -32,6 +32,10 @@ export type WSFileReaderResponse = {
   body: string | Buffer;
   status: number;
 };
+
+export type WSFileReader = (url: string) => WSFileReaderResponse;
+
+export type WSFileReaderCache = { get: (url: string) => WSFileReaderResponse };
 
 export type WSConfig = {
   port: number;
@@ -43,4 +47,9 @@ export type WSConfig = {
   plugins: { [plugin: string]: WSPlugin };
   ssl?: { key: string; cert: string };
   maxCacheSize: number;
+};
+
+export type WSCoreConsumer = {
+  createServer(config: WSConfig): Promise<WSServer>;
+  requestHandler(fileReaderCache: WSFileReaderCache): WSRequest;
 };

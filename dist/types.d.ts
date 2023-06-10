@@ -1,7 +1,7 @@
 /// <reference types="node" />
-type WSProp = ((...args: any[]) => any) | any | any[];
-type uWS_WebSocket = {
-  [prop: string]: WSProp;
+export type WSProp = ((...args: any[]) => any) | any | any[];
+export type uWS_WebSocket = {
+  [property: string]: WSProp;
 };
 export type WSEvent = {
   id: string;
@@ -9,21 +9,25 @@ export type WSEvent = {
   data?: any;
 };
 export type WSSocket = WebSocket | uWS_WebSocket;
-export type WSPlugin = (ws: WSSocket, event: WSEvent) => void;
+export type WSPlugin = (websocket: WSSocket, event: WSEvent) => void;
 export type WSServer = {
   start: (port: number) => Promise<WSServer>;
   config: WSConfig;
-  [prop: string]: WSProp;
+  [property: string]: WSProp;
 };
 export type WSRequest = (
-  resOrReq: object | any,
-  reqOrRes: object | any,
+  responseOnRequest: object | any,
+  requestOrResponse: object | any,
   next?: () => void
 ) => void;
 export type WSFileReaderResponse = {
   mime: string;
   body: string | Buffer;
   status: number;
+};
+export type WSFileReader = (url: string) => WSFileReaderResponse;
+export type WSFileReaderCache = {
+  get: (url: string) => WSFileReaderResponse;
 };
 export type WSConfig = {
   port: number;
@@ -41,5 +45,8 @@ export type WSConfig = {
   };
   maxCacheSize: number;
 };
-export {};
+export type WSCoreConsumer = {
+  createServer(config: WSConfig): Promise<WSServer>;
+  requestHandler(fileReaderCache: WSFileReaderCache): WSRequest;
+};
 //# sourceMappingURL=types.d.ts.map
