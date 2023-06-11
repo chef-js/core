@@ -86,8 +86,8 @@ export type Config = {
   folder: string;
   join: string;
   leave: string;
-  type: string;
   debug: boolean;
+  type: "core" | "express" | "socket" | "uws";
   plugins: {
     [plugin: string]: Plugin;
   };

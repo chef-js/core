@@ -36,12 +36,31 @@ https://chef-js.github.io/core/
 
 ## Running
 
-depending on variant you need, check readme of relevant npm package
+This library comes in 3 variants/flavors.
+
+Depending on variant you need, check readme of relevant npm package:
 
 ```bash
-npx chef-express ...
-npx chef-socket ...
-npx chef-uws ...
+# Serve dist folder using express flavor
+$ npx chef-express folder
+
+# Serve dist folder using socket.io flavor
+$ npx chef-socket folder
+
+# Serve dist folder using uws flavor
+$ npx chef-uws folder
+```
+
+Serve `dist` folder with express flavor on localhost:443 with develomnent ssl disabling cache:
+
+```bash
+$ npx chef-express dist --ssl --port 443 --maxCacheSize 0
+```
+
+Serve `dist` folder with socket flavor on localhost:4200 with websocket plugin in debug mode:
+
+```bash
+$ npx chef-socket dist --plugin ./path/to/plugin.js --debug
 ```
 
 ## Config
@@ -49,31 +68,32 @@ npx chef-uws ...
 you can read the default config by
 
 ```ts
+const { Config } = require("chef-core");
 const config = require("chef-core/config");
 ```
 
 or declare omiting the defaults that suit you, as below
 
 ```ts
-const config = {
-  // this enables http/ws logs
-  debug: process.argv.includes("--debug"),
-  // port on which the server listens
-  port: Number(process.env.PORT || 4200),
-  // you can use --plugin ./path/to/plugin.js any number of times
-  plugins: {},
-  // handshake event
-  join: "/join",
-  // disconnect from room event
-  leave: "/leave",
+const config: Config = {
   // folder to static serve files
   folder: process.argv[2],
-  // type of server to start
-  type: process.argv.includes("--uws") ? "uws" : "express",
+  // max cache size prevents oom, set to 0 to disable cache
+  maxCacheSize: parseInt(getParam("maxCacheSize", "128")),
+  // this enables http/ws logs
+  debug: process.argv.includes("--debug"),
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
-  // max cache size
-  maxCacheSize: 128,
+  // port on which the server listens
+  port: Number(getParam("port") || process.env.PORT || 4200),
+  // typeof Record<string, Plugin>, for cli use --plugin ./plugin.js any x of times
+  plugins: {},
+  // handshake event
+  join: getParam("join", "/join"),
+  // disconnect from room event
+  leave: getParam("leave", "/leave"),
+  // type of server to start
+  type: "core", // "core" | "express" | "socket" | "uws"
 };
 ```
 

@@ -32,7 +32,7 @@ export async function chef(
   server.config = mergedConfig;
 
   // spread
-  const { folder, maxCacheSize, type, port, plugins } = server.config;
+  const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
 
   // create the static files reader based on folder
   const fileReader: FileReader = createFileReader(folder);
@@ -52,7 +52,7 @@ export async function chef(
   await server.start(port);
 
   // mandatory started message
-  console.info(`Started ${type} app on port`, port);
+  console.info(`Started ${type} ${ssl ? "https" : "http"} app on port`, port);
 
   if (Object.keys(plugins).length) {
     console.info("with plugin(s)", Object.keys(plugins).join(", "));
