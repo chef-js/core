@@ -39,6 +39,7 @@ exports.createFileReader = exports.getUrl = void 0;
 __exportStar(require("./types"), exports);
 __exportStar(require("./server"), exports);
 __exportStar(require("./plugins"), exports);
+__exportStar(require("./get-param"), exports);
 var get_url_1 = require("./server/get-url");
 Object.defineProperty(exports, "getUrl", {
   enumerable: true,

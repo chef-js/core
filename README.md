@@ -87,7 +87,7 @@ const config: Config = {
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
   // port on which the server listens
-  port: Number(getParam("port") || process.env.PORT || 4200),
+  port: Number(getParam("port", process.env.PORT || "4200")),
   // typeof Record<string, Plugin>, for cli use --plugin ./plugin.js any x of times
   plugins: {},
   // handshake event

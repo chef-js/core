@@ -1,5 +1,6 @@
 import { Config } from "./types";
 import { resolve } from "path";
+import { getParam } from "./get-param";
 
 const ssl: { key: string; cert: string } = {
   key: getParam("key", resolve(__dirname, "..", "ssl", "example.key")),
@@ -16,7 +17,7 @@ const config: Config = {
   // ssl = undefined | { key, cert }
   ssl: process.argv.includes("--ssl") ? ssl : undefined,
   // port on which the server listens
-  port: Number(process.env.PORT || 4200),
+  port: Number(getParam("port", process.env.PORT || "4200")),
   // typeof Record<string, Plugin>, for cli use --plugin ./plugin.js any x of times
   plugins: {},
   // handshake event
@@ -26,13 +27,5 @@ const config: Config = {
   // type of server to start
   type: "core", // "express" | "socket" | "uws"
 };
-
-function getParam(find: string, fallback: string): string {
-  const matches: RegExpMatchArray | null = process.argv
-    .join(" ")
-    .match(new RegExp(`--${find} ([^ ]+)`));
-
-  return matches ? matches[1] : fallback;
-}
 
 export default config;
