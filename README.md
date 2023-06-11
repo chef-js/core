@@ -2,7 +2,8 @@
 
 <img style="max-width: 100%;" src="https://raw.githubusercontent.com/chef-js/express/main/chef.png" width="150" />
 
-<a href="https://badge.fury.io/js/chef-core"><img src="https://badge.fury.io/js/chef-core.svg" alt="npm package version" /></a> <a href="https://circleci.com/gh/chef-js/core"><img src="https://circleci.com/gh/chef-js/core.svg?style=shield" alt="tests status" /></a>
+[<img src="https://badge.fury.io/js/chef-core.svg" alt="npm package version" />](https://badge.fury.io/js/chef-core) [<img src="https://circleci.com/gh/chef-js/core.svg?style=shield" alt="tests status" />](https://circleci.com/gh/chef-js/core) [<img src="https://img.shields.io/npm/dw/chef-core.svg?color=success" alt="npm downloads per week" />](https://www.npmts.com/package/chef-core)
+
 
 **web-sockets** micro-service manager and **static files server** at the same port,
 
