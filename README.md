@@ -70,13 +70,14 @@ $ npx chef-socket dist --plugin ./path/to/plugin.js --debug
 You can read the default configuration by using the following code:
 
 ```ts
-const { Config, getParams } = require("chef-core");
 const config = require("chef-core/config");
 ```
 
 Alternatively, you can declare a custom configuration by omitting the defaults that don't suit your needs. Here's how the default config looks like:
 
 ```ts
+const { Config, getParams } = require("chef-core");
+
 const config: Config = {
   // folder to static serve files
   folder: process.argv[2],
