@@ -1,15 +1,15 @@
-import { WSEvent, WSPlugin, WSServer, WSSocket } from "./types";
+import { Event, Plugin, Server, Socket } from "./types";
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
- * @returns {WSPlugin}
+ * @returns {Plugin}
  */
 export default function shim(
   name: string,
   plugin: {
-    initialize: (server: WSServer) => void;
-    handshake: (ws: WSSocket, event: WSEvent) => void;
+    initialize: (server: Server) => void;
+    handshake: (ws: Socket, event: Event) => void;
     initialized?: boolean;
   }
-): WSPlugin;
+): Plugin;
 //# sourceMappingURL=shim.d.ts.map

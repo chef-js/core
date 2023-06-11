@@ -1,4 +1,4 @@
-import { WSConfig } from "./types";
+import { Config } from "./types";
 import { resolve } from "path";
 
 const ssl: { key: string; cert: string } = {
@@ -6,7 +6,7 @@ const ssl: { key: string; cert: string } = {
   cert: getParam("cert", resolve(__dirname, "..", "ssl", "example.crt")),
 };
 
-const config: WSConfig = {
+const config: Config = {
   // this enables http/ws logs
   debug: process.argv.includes("--debug"),
   // port on which the server listens

@@ -1,35 +1,44 @@
 /// <reference types="node" />
-export type WSProp = ((...args: any[]) => any) | any | any[];
-export type uWS_WebSocket = {
-  [property: string]: WSProp;
+export type ServerContext = {
+  to: (topic: string) => {
+    emit: (event: string, id: string, data?: any) => void;
+  };
 };
-export type WSEvent = {
+export type Property = ((...args: any[]) => any) | any | any[];
+export type UWebSocket = {
+  [property: string]: Property;
+};
+export type Event = {
   id: string;
   event: string;
   data?: any;
 };
-export type WSSocket = WebSocket | uWS_WebSocket;
-export type WSPlugin = (websocket: WSSocket, event: WSEvent) => void;
-export type WSServer = {
-  start: (port: number) => Promise<WSServer>;
-  config: WSConfig;
-  [property: string]: WSProp;
+export type Socket = WebSocket | UWebSocket;
+export type Plugin = (websocket: Socket, event: Event) => void;
+export type Server = {
+  start: (port: number) => Promise<Server>;
+  config: Config;
+  [property: string]: Property;
 };
-export type WSRequest = (
-  responseOnRequest: object | any,
+/**
+ * responseOrRequest - depending on flavor socket/uws
+ * requestOrResponse - depending on flavor socket/uws
+ */
+export type Request = (
+  responseOrRequest: object | any,
   requestOrResponse: object | any,
   next?: () => void
 ) => void;
-export type WSFileReaderResponse = {
+export type FileReaderResponse = {
   mime: string;
   body: string | Buffer;
   status: number;
 };
-export type WSFileReader = (url: string) => WSFileReaderResponse;
-export type WSFileReaderCache = {
-  get: (url: string) => WSFileReaderResponse;
+export type FileReader = (url: string) => FileReaderResponse;
+export type FileReaderCache = {
+  get: FileReader;
 };
-export type WSConfig = {
+export type Config = {
   port: number;
   folder: string;
   join: string;
@@ -37,7 +46,7 @@ export type WSConfig = {
   type: string;
   debug: boolean;
   plugins: {
-    [plugin: string]: WSPlugin;
+    [plugin: string]: Plugin;
   };
   ssl?: {
     key: string;
@@ -45,8 +54,8 @@ export type WSConfig = {
   };
   maxCacheSize: number;
 };
-export type WSCoreConsumer = {
-  createServer(config: WSConfig): Promise<WSServer>;
-  requestHandler(fileReaderCache: WSFileReaderCache): WSRequest;
+export type CoreConsumer = {
+  createServer(config: Config): Promise<Server>;
+  requestHandler(fileReaderCache: FileReaderCache): Request;
 };
 //# sourceMappingURL=types.d.ts.map

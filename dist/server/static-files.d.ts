@@ -1,5 +1,5 @@
-import { WSFileReaderResponse } from "../types";
+import { FileReaderResponse } from "../types";
 export default function createFileReader(
   folder?: string
-): (url: string) => WSFileReaderResponse;
+): (url: string) => FileReaderResponse;
 //# sourceMappingURL=static-files.d.ts.map

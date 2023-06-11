@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>WSFileReaderResponse | Detect-Collisions</title>
+    <title>ServerContext | Detect-Collisions</title>
     <meta name="description" content="Documentation for Detect-Collisions" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -77,30 +77,38 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">Detect-Collisions</a></li>
-            <li>
-              <a href="WSFileReaderResponse.html">WSFileReaderResponse</a>
-            </li>
+            <li><a href="ServerContext.html">ServerContext</a></li>
           </ul>
-          <h1>Type alias WSFileReaderResponse</h1>
+          <h1>Type alias ServerContext</h1>
         </div>
         <div class="tsd-signature">
-          <span class="tsd-kind-type-alias"
-            >WSFile<wbr />Reader<wbr />Response</span
+          <span class="tsd-kind-type-alias">Server<wbr />Context</span
           ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-symbol">{ </span><br /><span>    </span
-          ><span class="tsd-kind-property">body</span
+          ><span class="tsd-kind-property">to</span
           ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><span class="tsd-signature-type">Buffer</span
+          ><span class="tsd-signature-symbol">(</span
+          ><span class="tsd-signature-symbol">(</span
+          ><span class="tsd-kind-parameter">topic</span
+          ><span class="tsd-signature-symbol">)</span
+          ><span class="tsd-signature-symbol"> =&gt; </span
+          ><span class="tsd-signature-symbol">{ </span><br /><span
+            >        </span
+          ><span class="tsd-kind-property">emit</span
+          ><span class="tsd-signature-symbol">: </span
+          ><span class="tsd-signature-symbol">(</span
+          ><span class="tsd-signature-symbol">(</span
+          ><span class="tsd-kind-parameter">event</span>,
+          <span class="tsd-kind-parameter">id</span>,
+          <span class="tsd-kind-parameter">data</span
+          ><span class="tsd-signature-symbol">?</span
+          ><span class="tsd-signature-symbol">)</span
+          ><span class="tsd-signature-symbol"> =&gt; </span
+          ><span class="tsd-signature-type">void</span
+          ><span class="tsd-signature-symbol">)</span
           ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><span class="tsd-kind-property">mime</span
-          ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><span class="tsd-kind-property">status</span
-          ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">number</span
+          ><span class="tsd-signature-symbol">}</span
+          ><span class="tsd-signature-symbol">)</span
           ><span class="tsd-signature-symbol">; </span><br /><span
             class="tsd-signature-symbol"
             >}</span
@@ -111,26 +119,178 @@
           <ul class="tsd-parameters">
             <li class="tsd-parameter">
               <h5>
-                <span class="tsd-kind-property">body</span
+                <span class="tsd-kind-property">to</span
                 ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">Buffer</span>
-              </h5>
-            </li>
-            <li class="tsd-parameter">
-              <h5>
-                <span class="tsd-kind-property">mime</span
+                ><span class="tsd-signature-symbol">(</span
+                ><span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">topic</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol"> =&gt; </span
+                ><span class="tsd-signature-symbol">{ </span><br /><span
+                  >    </span
+                ><span class="tsd-kind-property">emit</span
                 ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">string</span>
+                ><span class="tsd-signature-symbol">(</span
+                ><span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">event</span>,
+                <span class="tsd-kind-parameter">id</span>,
+                <span class="tsd-kind-parameter">data</span
+                ><span class="tsd-signature-symbol">?</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol"> =&gt; </span
+                ><span class="tsd-signature-type">void</span
+                ><span class="tsd-signature-symbol">)</span
+                ><span class="tsd-signature-symbol">; </span><br /><span
+                  class="tsd-signature-symbol"
+                  >}</span
+                ><span class="tsd-signature-symbol">)</span>
               </h5>
-            </li>
-            <li class="tsd-parameter">
-              <h5>
-                <span class="tsd-kind-property">status</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">number</span>
-              </h5>
+              <ul class="tsd-parameters">
+                <li class="tsd-parameter-signature">
+                  <ul class="tsd-signatures">
+                    <li class="tsd-signature" id="__type.to.__type-1.__type-2">
+                      <span class="tsd-signature-symbol">(</span
+                      ><span class="tsd-kind-parameter">topic</span
+                      ><span class="tsd-signature-symbol">)</span
+                      ><span class="tsd-signature-symbol">: </span
+                      ><span class="tsd-signature-symbol">{ </span><br /><span
+                        >    </span
+                      ><span class="tsd-kind-property">emit</span
+                      ><span class="tsd-signature-symbol">: </span
+                      ><span class="tsd-signature-symbol">(</span
+                      ><span class="tsd-signature-symbol">(</span
+                      ><span class="tsd-kind-parameter">event</span>,
+                      <span class="tsd-kind-parameter">id</span>,
+                      <span class="tsd-kind-parameter">data</span
+                      ><span class="tsd-signature-symbol">?</span
+                      ><span class="tsd-signature-symbol">)</span
+                      ><span class="tsd-signature-symbol"> =&gt; </span
+                      ><span class="tsd-signature-type">void</span
+                      ><span class="tsd-signature-symbol">)</span
+                      ><span class="tsd-signature-symbol">; </span><br /><span
+                        class="tsd-signature-symbol"
+                        >}</span
+                      >
+                    </li>
+                    <li class="tsd-description">
+                      <div class="tsd-parameters">
+                        <h4 class="tsd-parameters-title">Parameters</h4>
+                        <ul class="tsd-parameter-list">
+                          <li>
+                            <h5>
+                              <span class="tsd-kind-parameter">topic</span>:
+                              <span class="tsd-signature-type">string</span>
+                            </h5>
+                          </li>
+                        </ul>
+                      </div>
+                      <h4 class="tsd-returns-title">
+                        Returns <span class="tsd-signature-symbol">{ </span
+                        ><br /><span>    </span
+                        ><span class="tsd-kind-property">emit</span
+                        ><span class="tsd-signature-symbol">: </span
+                        ><span class="tsd-signature-symbol">(</span
+                        ><span class="tsd-signature-symbol">(</span
+                        ><span class="tsd-kind-parameter">event</span>,
+                        <span class="tsd-kind-parameter">id</span>,
+                        <span class="tsd-kind-parameter">data</span
+                        ><span class="tsd-signature-symbol">?</span
+                        ><span class="tsd-signature-symbol">)</span
+                        ><span class="tsd-signature-symbol"> =&gt; </span
+                        ><span class="tsd-signature-type">void</span
+                        ><span class="tsd-signature-symbol">)</span
+                        ><span class="tsd-signature-symbol">; </span><br /><span
+                          class="tsd-signature-symbol"
+                          >}</span
+                        >
+                      </h4>
+                      <ul class="tsd-parameters">
+                        <li class="tsd-parameter">
+                          <h5>
+                            <span class="tsd-kind-property">emit</span
+                            ><span class="tsd-signature-symbol">: </span
+                            ><span class="tsd-signature-symbol">(</span
+                            ><span class="tsd-signature-symbol">(</span
+                            ><span class="tsd-kind-parameter">event</span>,
+                            <span class="tsd-kind-parameter">id</span>,
+                            <span class="tsd-kind-parameter">data</span
+                            ><span class="tsd-signature-symbol">?</span
+                            ><span class="tsd-signature-symbol">)</span
+                            ><span class="tsd-signature-symbol"> =&gt; </span
+                            ><span class="tsd-signature-type">void</span
+                            ><span class="tsd-signature-symbol">)</span>
+                          </h5>
+                          <ul class="tsd-parameters">
+                            <li class="tsd-parameter-signature">
+                              <ul class="tsd-signatures">
+                                <li
+                                  class="tsd-signature"
+                                  id="__type.to.__type-1.__type-2.__type-3.emit.__type-4.__type-5"
+                                >
+                                  <span class="tsd-signature-symbol">(</span
+                                  ><span class="tsd-kind-parameter">event</span
+                                  >, <span class="tsd-kind-parameter">id</span>,
+                                  <span class="tsd-kind-parameter">data</span
+                                  ><span class="tsd-signature-symbol">?</span
+                                  ><span class="tsd-signature-symbol">)</span
+                                  ><span class="tsd-signature-symbol">: </span
+                                  ><span class="tsd-signature-type">void</span>
+                                </li>
+                                <li class="tsd-description">
+                                  <div class="tsd-parameters">
+                                    <h4 class="tsd-parameters-title">
+                                      Parameters
+                                    </h4>
+                                    <ul class="tsd-parameter-list">
+                                      <li>
+                                        <h5>
+                                          <span class="tsd-kind-parameter"
+                                            >event</span
+                                          >:
+                                          <span class="tsd-signature-type"
+                                            >string</span
+                                          >
+                                        </h5>
+                                      </li>
+                                      <li>
+                                        <h5>
+                                          <span class="tsd-kind-parameter"
+                                            >id</span
+                                          >:
+                                          <span class="tsd-signature-type"
+                                            >string</span
+                                          >
+                                        </h5>
+                                      </li>
+                                      <li>
+                                        <h5>
+                                          <code class="tsd-tag ts-flagOptional"
+                                            >Optional</code
+                                          >
+                                          <span class="tsd-kind-parameter"
+                                            >data</span
+                                          >:
+                                          <span class="tsd-signature-type"
+                                            >any</span
+                                          >
+                                        </h5>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <h4 class="tsd-returns-title">
+                                    Returns
+                                    <span class="tsd-signature-type">void</span>
+                                  </h4>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -139,8 +299,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/chef-js/core/blob/9618bbf/src/types.ts#L30"
-                >types.ts:30</a
+                href="https://github.com/chef-js/core/blob/4e06dea/src/types.ts#L1"
+                >types.ts:1</a
               >
             </li>
           </ul>
@@ -334,7 +494,7 @@
             >
             <ul class="tsd-small-nested-navigation">
               <li>
-                <a href="WSConfig.html"
+                <a href="Config.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <g id="icon-4194304">
                       <rect
@@ -352,84 +512,91 @@
                         fill="var(--color-text)"
                       ></path>
                     </g></svg
-                  ><span>WSConfig</span></a
+                  ><span>Config</span></a
                 >
               </li>
               <li>
-                <a href="WSCoreConsumer.html"
+                <a href="CoreConsumer.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSCore<wbr />Consumer</span></a
+                  ><span>Core<wbr />Consumer</span></a
                 >
               </li>
               <li>
-                <a href="WSEvent.html"
+                <a href="Event.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSEvent</span></a
+                  ><span>Event</span></a
                 >
               </li>
               <li>
-                <a href="WSFileReader.html"
+                <a href="FileReader.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSFile<wbr />Reader</span></a
+                  ><span>File<wbr />Reader</span></a
                 >
               </li>
               <li>
-                <a href="WSFileReaderCache.html"
+                <a href="FileReaderCache.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSFile<wbr />Reader<wbr />Cache</span></a
+                  ><span>File<wbr />Reader<wbr />Cache</span></a
                 >
               </li>
               <li>
-                <a href="WSFileReaderResponse.html" class="current"
+                <a href="FileReaderResponse.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSFile<wbr />Reader<wbr />Response</span></a
+                  ><span>File<wbr />Reader<wbr />Response</span></a
                 >
               </li>
               <li>
-                <a href="WSPlugin.html"
+                <a href="Plugin.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSPlugin</span></a
+                  ><span>Plugin</span></a
                 >
               </li>
               <li>
-                <a href="WSProp.html"
+                <a href="Property.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSProp</span></a
+                  ><span>Property</span></a
                 >
               </li>
               <li>
-                <a href="WSRequest.html"
+                <a href="Request.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSRequest</span></a
+                  ><span>Request</span></a
                 >
               </li>
               <li>
-                <a href="WSServer.html"
+                <a href="Server.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSServer</span></a
+                  ><span>Server</span></a
                 >
               </li>
               <li>
-                <a href="WSSocket.html"
+                <a href="ServerContext.html" class="current"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>WSSocket</span></a
+                  ><span>Server<wbr />Context</span></a
                 >
               </li>
               <li>
-                <a href="uWS_WebSocket.html"
+                <a href="Socket.html"
                   ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                     <use href="#icon-4194304"></use></svg
-                  ><span>uWS_<wbr />Web<wbr />Socket</span></a
+                  ><span>Socket</span></a
+                >
+              </li>
+              <li>
+                <a href="UWebSocket.html"
+                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                    <use href="#icon-4194304"></use></svg
+                  ><span>UWeb<wbr />Socket</span></a
                 >
               </li>
               <li>

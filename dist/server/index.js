@@ -12,9 +12,9 @@ const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
 /**
  * this is either
- * @param {WSConfig} config
- * @param {WSCoreConsumer} coreConsumer
- * @returns {WSServer}
+ * @param {Config} config
+ * @param {CoreConsumer} coreConsumer
+ * @returns {Server}
  */
 async function chef(config, { createServer, requestHandler }) {
   const mergedConfig = { ...config_js_1.default, ...config };

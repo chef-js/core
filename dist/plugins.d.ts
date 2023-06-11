@@ -1,7 +1,7 @@
-import { WSConfig, WSPlugin } from "./types.js";
-export declare function populatePlugins(config: WSConfig): Promise<void>;
+import { Config, Plugin } from "./types.js";
+export declare function populatePlugins(config: Config): Promise<void>;
 export declare function getPlugin(
-  config: WSConfig,
+  config: Config,
   topic: string
-): WSPlugin | undefined;
+): Plugin | undefined;
 //# sourceMappingURL=plugins.d.ts.map

@@ -2,31 +2,31 @@ import { Cache } from "latermom";
 import baseConfig from "../config.js";
 import createFileReader from "./static-files.js";
 import {
-  WSConfig,
-  WSFileReader,
-  WSFileReaderCache,
-  WSServer,
-  WSCoreConsumer,
+  Config,
+  FileReader,
+  FileReaderCache,
+  Server,
+  CoreConsumer,
 } from "../types.js";
 import { populatePlugins } from "../plugins";
 
 /**
  * this is either
- * @param {WSConfig} config
- * @param {WSCoreConsumer} coreConsumer
- * @returns {WSServer}
+ * @param {Config} config
+ * @param {CoreConsumer} coreConsumer
+ * @returns {Server}
  */
 export async function chef(
-  config: Partial<WSConfig>,
-  { createServer, requestHandler }: WSCoreConsumer
-): Promise<WSServer> {
-  const mergedConfig: WSConfig = { ...baseConfig, ...config };
+  config: Partial<Config>,
+  { createServer, requestHandler }: CoreConsumer
+): Promise<Server> {
+  const mergedConfig: Config = { ...baseConfig, ...config };
 
   // polulate config.plugins by requiring optional files
   await populatePlugins(mergedConfig);
 
   // create the express or uws server inside a wrapper
-  const server: WSServer = await createServer(mergedConfig);
+  const server: Server = await createServer(mergedConfig);
 
   // extend with resulting config
   server.config = mergedConfig;
@@ -35,10 +35,10 @@ export async function chef(
   const { folder, maxCacheSize, type, port, plugins } = server.config;
 
   // create the static files reader based on folder
-  const fileReader: WSFileReader = createFileReader(folder);
+  const fileReader: FileReader = createFileReader(folder);
 
   // and create a cache for above
-  const fileReaderCache: WSFileReaderCache = maxCacheSize
+  const fileReaderCache: FileReaderCache = maxCacheSize
     ? new Cache(fileReader, maxCacheSize)
     : { get: fileReader };
 

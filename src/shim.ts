@@ -1,23 +1,23 @@
-import { WSEvent, WSPlugin, WSServer, WSSocket } from "./types";
+import { Event, Plugin, Server, Socket } from "./types";
 
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
- * @returns {WSPlugin}
+ * @returns {Plugin}
  */
 export default function shim(
   name: string,
   plugin: {
-    initialize: (server: WSServer) => void;
-    handshake: (ws: WSSocket, event: WSEvent) => void;
+    initialize: (server: Server) => void;
+    handshake: (ws: Socket, event: Event) => void;
     initialized?: boolean;
   }
-): WSPlugin {
+): Plugin {
   // this js hack sets function name
   const object = {
     [name]: function (
-      ws: WSSocket & { [prop: string]: any },
-      { id, event, data }: WSEvent
+      ws: Socket & { [prop: string]: any },
+      { id, event, data }: Event
     ) {
       // once per plugin
       if (!plugin.initialized) {
@@ -35,7 +35,7 @@ export default function shim(
         if (!ws.on) {
           ws.events = {};
 
-          ws.on = (event: string, callback: WSPlugin) => {
+          ws.on = (event: string, callback: Plugin) => {
             if (!ws.events[event]) {
               ws.events[event] = [];
             }
@@ -55,10 +55,10 @@ export default function shim(
         }
       }
 
-      const callbacks: WSPlugin[] | undefined = ws.events && ws.events[event];
+      const callbacks: Plugin[] | undefined = ws.events && ws.events[event];
 
       if (callbacks) {
-        callbacks.forEach((callback: WSPlugin) =>
+        callbacks.forEach((callback: Plugin) =>
           callback.call(this, { id, event, data })
         );
       }

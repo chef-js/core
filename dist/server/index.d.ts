@@ -1,12 +1,12 @@
-import { WSConfig, WSServer, WSCoreConsumer } from "../types.js";
+import { Config, Server, CoreConsumer } from "../types.js";
 /**
  * this is either
- * @param {WSConfig} config
- * @param {WSCoreConsumer} coreConsumer
- * @returns {WSServer}
+ * @param {Config} config
+ * @param {CoreConsumer} coreConsumer
+ * @returns {Server}
  */
 export declare function chef(
-  config: Partial<WSConfig>,
-  { createServer, requestHandler }: WSCoreConsumer
-): Promise<WSServer>;
+  config: Partial<Config>,
+  { createServer, requestHandler }: CoreConsumer
+): Promise<Server>;
 //# sourceMappingURL=index.d.ts.map

@@ -1,7 +1,7 @@
 import { resolve } from "path";
-import { WSConfig, WSPlugin } from "./types.js";
+import { Config, Plugin } from "./types.js";
 
-export async function populatePlugins(config: WSConfig): Promise<void> {
+export async function populatePlugins(config: Config): Promise<void> {
   // get plugins from bash regex
   const matches: RegExpMatchArray | null = process.argv
     .join(" ")
@@ -9,7 +9,7 @@ export async function populatePlugins(config: WSConfig): Promise<void> {
 
   if (matches) {
     // we need to get our promises in order
-    const syncMap: Promise<{ default: WSPlugin }>[] = matches.map(
+    const syncMap: Promise<{ default: Plugin }>[] = matches.map(
       (path: string) => {
         const [_, plugin] = path.split(" ");
 
@@ -18,19 +18,16 @@ export async function populatePlugins(config: WSConfig): Promise<void> {
     );
 
     // so the main function awaits properly
-    const plugins: { default: WSPlugin }[] = await Promise.all(syncMap);
+    const plugins: { default: Plugin }[] = await Promise.all(syncMap);
 
-    plugins.forEach(({ default: plugin }: { default: WSPlugin }) => {
+    plugins.forEach(({ default: plugin }: { default: Plugin }) => {
       // populate plugins
       config.plugins[plugin.name] = plugin;
     });
   }
 }
 
-export function getPlugin(
-  config: WSConfig,
-  topic: string
-): WSPlugin | undefined {
+export function getPlugin(config: Config, topic: string): Plugin | undefined {
   // check if we have such plugin
   return config.plugins[topic];
 }
