@@ -40,15 +40,17 @@ This library comes in 3 variants/flavors.
 
 Depending on variant you need, check readme of relevant npm package:
 
+Basic usage:
+
 ```bash
-# Serve dist folder using express flavor
-$ npx chef-express folder
+# Serve dist folder using express flavor on localhost:4200
+$ npx chef-express dist
 
-# Serve dist folder using socket.io flavor
-$ npx chef-socket folder
+# Serve dist folder using socket.io flavor on localhost:4200
+$ npx chef-socket dist
 
-# Serve dist folder using uws flavor
-$ npx chef-uws folder
+# Serve dist folder using uws flavor on localhost:4200
+$ npx chef-uws dist
 ```
 
 Serve `dist` folder with express flavor on localhost:443 with develomnent ssl disabling cache:
