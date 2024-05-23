@@ -5,11 +5,11 @@ const get_param_1 = require("./get-param");
 const ssl = {
   key: (0, get_param_1.getParam)(
     "key",
-    (0, path_1.resolve)(__dirname, "..", "ssl", "example.key")
+    (0, path_1.resolve)(__dirname, "..", "ssl", "example.key"),
   ),
   cert: (0, get_param_1.getParam)(
     "cert",
-    (0, path_1.resolve)(__dirname, "..", "ssl", "example.crt")
+    (0, path_1.resolve)(__dirname, "..", "ssl", "example.crt"),
   ),
 };
 const config = {

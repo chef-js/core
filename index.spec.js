@@ -23,8 +23,8 @@ describe("GIVEN chef is provided", () => {
       expect(() =>
         chef(
           { type: "uws", folder: "demo", port: 3001 },
-          { createServer, requestHandler }
-        )
+          { createServer, requestHandler },
+        ),
       ).not.toThrow();
     });
 
@@ -34,8 +34,8 @@ describe("GIVEN chef is provided", () => {
       expect(
         await chef(
           { type: "uws", folder: "demo", port: 3002 },
-          { createServer, requestHandler }
-        )
+          { createServer, requestHandler },
+        ),
       ).toBeTruthy();
     });
   });
@@ -49,7 +49,7 @@ describe("GIVEN chef is provided", () => {
           debug: true,
           port: 3003,
         },
-        { createServer, requestHandler }
+        { createServer, requestHandler },
       );
 
       expect(api).toBeTruthy();
@@ -67,7 +67,7 @@ describe("GIVEN chef is provided", () => {
             folder: "demo",
             port: 3004,
           },
-          { createServer, requestHandler }
+          { createServer, requestHandler },
         );
 
       expect(test).not.toThrow();
@@ -83,7 +83,7 @@ describe("GIVEN chef is provided", () => {
           folder: "demo",
           port: 8080,
         },
-        { createServer, requestHandler }
+        { createServer, requestHandler },
       );
 
       expect(server).toBeTruthy();
@@ -103,7 +103,7 @@ describe("GIVEN chef is provided", () => {
             },
           },
         },
-        { createServer, requestHandler }
+        { createServer, requestHandler },
       );
 
       expect(server).toBeTruthy();
@@ -124,7 +124,7 @@ describe("GIVEN chef is provided", () => {
           port: 4201,
           plugins: { chat },
         },
-        { createServer, requestHandler }
+        { createServer, requestHandler },
       );
 
       expect(server).toBeTruthy();

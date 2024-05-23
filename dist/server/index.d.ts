@@ -7,6 +7,6 @@ import { Config, Server, CoreConsumer } from "../types.js";
  */
 export declare function chef(
   config: Partial<Config>,
-  { createServer, requestHandler }: CoreConsumer
+  { createServer, requestHandler }: CoreConsumer,
 ): Promise<Server>;
 //# sourceMappingURL=index.d.ts.map

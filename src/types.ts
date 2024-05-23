@@ -66,7 +66,7 @@ export type Server = {
 export type Request = (
   responseOrRequest: object | any,
   requestOrResponse: object | any,
-  next?: () => void
+  next?: () => void,
 ) => void;
 
 /**

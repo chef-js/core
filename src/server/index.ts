@@ -1,4 +1,4 @@
-import { Cache } from "latermom";
+import { Cache } from "@pietal.dev/cache";
 import baseConfig from "../config.js";
 import createFileReader from "./static-files.js";
 import {
@@ -18,7 +18,7 @@ import { populatePlugins } from "../plugins";
  */
 export async function chef(
   config: Partial<Config>,
-  { createServer, requestHandler }: CoreConsumer
+  { createServer, requestHandler }: CoreConsumer,
 ): Promise<Server> {
   const mergedConfig: Config = { ...baseConfig, ...config };
 

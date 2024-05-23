@@ -11,13 +11,13 @@ export default function shim(
     initialize: (server: Server) => void;
     handshake: (ws: Socket, event: Event) => void;
     initialized?: boolean;
-  }
+  },
 ): Plugin {
   // this js hack sets function name
   const object = {
     [name]: function (
       ws: Socket & { [prop: string]: any },
-      { id, event, data }: Event
+      { id, event, data }: Event,
     ) {
       // once per plugin
       if (!plugin.initialized) {
@@ -59,7 +59,7 @@ export default function shim(
 
       if (callbacks) {
         callbacks.forEach((callback: Plugin) =>
-          callback.call(this, { id, event, data })
+          callback.call(this, { id, event, data }),
         );
       }
     },

@@ -14,7 +14,7 @@ export async function populatePlugins(config: Config): Promise<void> {
         const [_, plugin] = path.split(" ");
 
         return import(resolve(plugin));
-      }
+      },
     );
 
     // so the main function awaits properly

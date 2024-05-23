@@ -6,7 +6,7 @@ var __importDefault =
   };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.chef = void 0;
-const latermom_1 = require("latermom");
+const cache_1 = require("@pietal.dev/cache");
 const config_js_1 = __importDefault(require("../config.js"));
 const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
@@ -30,7 +30,7 @@ async function chef(config, { createServer, requestHandler }) {
   const fileReader = (0, static_files_js_1.default)(folder);
   // and create a cache for above
   const fileReaderCache = maxCacheSize
-    ? new latermom_1.Cache(fileReader, maxCacheSize)
+    ? new cache_1.Cache(fileReader, maxCacheSize)
     : { get: fileReader };
   // give library consumer one frame to setup his own routes
   setTimeout(() => {

@@ -4,7 +4,7 @@ import { existsSync, lstatSync, readFileSync } from "fs";
 import { FileReaderResponse } from "../types";
 
 export default function createFileReader(
-  folder: string = ""
+  folder: string = "",
 ): (url: string) => FileReaderResponse {
   // get main index
   const index: string | null = folder

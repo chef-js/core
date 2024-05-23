@@ -10,6 +10,6 @@ export default function shim(
     initialize: (server: Server) => void;
     handshake: (ws: Socket, event: Event) => void;
     initialized?: boolean;
-  }
+  },
 ): Plugin;
 //# sourceMappingURL=shim.d.ts.map
