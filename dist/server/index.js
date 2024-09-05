@@ -38,10 +38,7 @@ async function chef(config, { createServer, requestHandler }) {
   setTimeout(() => {
     // everything goes to the reader
     server.get("/*", (req, res, next) => {
-      const response = requestHandler(fileReaderCache)(req, res);
-      if (!response) {
-        next();
-      }
+      requestHandler(fileReaderCache)(req, res, next);
     });
   });
   // mandatory started message

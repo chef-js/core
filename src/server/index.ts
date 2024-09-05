@@ -54,10 +54,7 @@ export async function chef(
     server.get(
       "/*",
       (req: ResponseOrRequest, res: ResponseOrRequest, next: NextFunction) => {
-        const response = requestHandler(fileReaderCache)(req, res);
-        if (!response) {
-          next();
-        }
+        requestHandler(fileReaderCache)(req, res, next);
       },
     );
   });
