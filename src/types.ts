@@ -59,15 +59,19 @@ export type Server = {
   [property: string]: Property;
 };
 
+export type NextFunction = () => void;
+
+export type ResponseOrRequest = Record<string, any>;
+
 /**
  * responseOrRequest - depending on flavor socket/uws
  * requestOrResponse - depending on flavor socket/uws
  */
-export type Request = (
-  responseOrRequest: object | any,
-  requestOrResponse: object | any,
-  next?: () => void,
-) => void;
+export type RequestHandler = (
+  responseOrRequest: ResponseOrRequest,
+  requestOrResponse: ResponseOrRequest,
+  next?: NextFunction,
+) => boolean | void;
 
 /**
  * each filereader response should contain those
@@ -109,5 +113,5 @@ export type Config = {
  */
 export type CoreConsumer = {
   createServer(config: Config): Promise<Server>;
-  requestHandler(fileReaderCache: FileReaderCache): Request;
+  requestHandler(fileReaderCache: FileReaderCache): RequestHandler;
 };

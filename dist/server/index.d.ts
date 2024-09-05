@@ -1,4 +1,4 @@
-import { Config, Server, CoreConsumer } from "../types.js";
+import { Config, CoreConsumer, Server } from "../types.js";
 /**
  * this is either
  * @param {Config} config

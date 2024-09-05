@@ -1,8 +1,15 @@
 "use strict";
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = createFileReader;
+const fs_1 = require("fs");
+const config_1 = __importDefault(require("../config"));
 const path_1 = require("path");
 const mime_types_1 = require("mime-types");
-const fs_1 = require("fs");
 function createFileReader(folder = "") {
   // get main index
   const index = folder
@@ -20,7 +27,10 @@ function createFileReader(folder = "") {
     if ((0, fs_1.lstatSync)(filename).isDirectory()) {
       return fileReader(`${url}/index.html`);
     }
-    return { mime, body: (0, fs_1.readFileSync)(filename), status: 200 };
+    if (config_1.default.spa) {
+      return { mime, body: (0, fs_1.readFileSync)(filename), status: 200 };
+    } else {
+      return null;
+    }
   };
 }
-exports.default = createFileReader;

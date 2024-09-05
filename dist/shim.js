@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = shim;
 /**
  * @param {string} name
  * @param {object} plugin = { initialize, handshake }
@@ -47,4 +48,3 @@ function shim(name, plugin) {
   };
   return object[name];
 }
-exports.default = shim;

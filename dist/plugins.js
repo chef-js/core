@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPlugin = exports.populatePlugins = void 0;
+exports.populatePlugins = populatePlugins;
+exports.getPlugin = getPlugin;
 const path_1 = require("path");
 async function populatePlugins(config) {
   // get plugins from bash regex
@@ -19,9 +20,7 @@ async function populatePlugins(config) {
     });
   }
 }
-exports.populatePlugins = populatePlugins;
 function getPlugin(config, topic) {
   // check if we have such plugin
   return config.plugins[topic];
 }
-exports.getPlugin = getPlugin;

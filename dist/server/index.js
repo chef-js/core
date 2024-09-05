@@ -5,7 +5,7 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chef = void 0;
+exports.chef = chef;
 const cache_1 = require("@pietal.dev/cache");
 const config_js_1 = __importDefault(require("../config.js"));
 const static_files_js_1 = __importDefault(require("./static-files.js"));
@@ -32,13 +32,18 @@ async function chef(config, { createServer, requestHandler }) {
   const fileReaderCache = maxCacheSize
     ? new cache_1.Cache(fileReader, maxCacheSize)
     : { get: fileReader };
+  // make server listen on process.env.PORT || 4200
+  await server.start(port);
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
-    server.get("/*", requestHandler(fileReaderCache));
+    server.get("/*", (req, res, next) => {
+      const response = requestHandler(fileReaderCache)(req, res);
+      if (!response) {
+        next();
+      }
+    });
   });
-  // make server listen on process.env.PORT || 4200
-  await server.start(port);
   // mandatory started message
   console.info(`Started ${type} ${ssl ? "https" : "http"} app on port`, port);
   if (Object.keys(plugins).length) {
@@ -47,4 +52,3 @@ async function chef(config, { createServer, requestHandler }) {
   // finally
   return server;
 }
-exports.chef = chef;

@@ -3,6 +3,8 @@ import {
   CoreConsumer,
   FileReader,
   FileReaderCache,
+  NextFunction,
+  ResponseOrRequest,
   Server,
 } from "../types.js";
 
@@ -49,12 +51,15 @@ export async function chef(
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
-    server.get("/*", (req, res, next) => {
-      const response = requestHandler(fileReaderCache)(req, res);
-      if (!response) {
-        next();
-      }
-    });
+    server.get(
+      "/*",
+      (req: ResponseOrRequest, res: ResponseOrRequest, next: NextFunction) => {
+        const response = requestHandler(fileReaderCache)(req, res);
+        if (!response) {
+          next();
+        }
+      },
+    );
   });
 
   // mandatory started message

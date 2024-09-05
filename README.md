@@ -79,6 +79,8 @@ Alternatively, you can declare a custom configuration by omitting the defaults t
 const { Config, getParams } = require("chef-core");
 
 const config: Config = {
+  // serve 404s as index.html
+  spa: true,
   // folder to static serve files
   folder: process.argv[2],
   // max cache size prevents oom, set to 0 to disable cache

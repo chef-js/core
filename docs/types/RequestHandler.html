@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>ServerEmitEvent | Chef-JS Core</title>
+    <title>RequestHandler | Chef-JS Core</title>
     <meta name="description" content="Documentation for Chef-JS Core" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -60,33 +60,44 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">Chef-JS Core</a></li>
-            <li><a href="ServerEmitEvent.html">ServerEmitEvent</a></li>
+            <li><a href="RequestHandler.html">RequestHandler</a></li>
           </ul>
-          <h1>Type Alias ServerEmitEvent</h1>
+          <h1>Type Alias RequestHandler</h1>
         </div>
         <div class="tsd-signature">
-          <span class="tsd-kind-type-alias">Server<wbr />Emit<wbr />Event</span
+          <span class="tsd-kind-type-alias">Request<wbr />Handler</span
           ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-symbol">(</span
           ><span class="tsd-signature-symbol">(</span
-          ><span class="tsd-kind-parameter">event</span
+          ><span class="tsd-kind-parameter">responseOrRequest</span
           ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">string</span>,
-          <span class="tsd-kind-parameter">id</span
+          ><a
+            href="ResponseOrRequest.html"
+            class="tsd-signature-type tsd-kind-type-alias"
+            >ResponseOrRequest</a
+          >, <span class="tsd-kind-parameter">requestOrResponse</span
           ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">string</span>,
-          <span class="tsd-kind-parameter">data</span
+          ><a
+            href="ResponseOrRequest.html"
+            class="tsd-signature-type tsd-kind-type-alias"
+            >ResponseOrRequest</a
+          >, <span class="tsd-kind-parameter">next</span
           ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">any</span
+          ><a
+            href="NextFunction.html"
+            class="tsd-signature-type tsd-kind-type-alias"
+            >NextFunction</a
           ><span class="tsd-signature-symbol">)</span
           ><span class="tsd-signature-symbol"> =&gt; </span
+          ><span class="tsd-signature-type">boolean</span
+          ><span class="tsd-signature-symbol"> | </span
           ><span class="tsd-signature-type">void</span
           ><span class="tsd-signature-symbol">)</span>
         </div>
         <div class="tsd-comment tsd-typography">
           <p>
-            shortcut in plugin for
-            <a href="http://this.to">this.to</a>(topic).emit(event, id, data)
+            responseOrRequest - depending on flavor socket/uws requestOrResponse
+            - depending on flavor socket/uws
           </p>
         </div>
         <div class="tsd-comment tsd-typography"></div>
@@ -95,8 +106,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/chef-js/core/blob/11c2a3405e23ff853ee0560c70c35baa0323aba1/src/types.ts#L5"
-                >types.ts:5</a
+                href="https://github.com/chef-js/core/blob/11c2a3405e23ff853ee0560c70c35baa0323aba1/src/types.ts#L70"
+                >types.ts:70</a
               >
             </li>
           </ul>

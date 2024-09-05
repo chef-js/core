@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const path_1 = require("path");
 const get_param_1 = require("./get-param");
+const path_1 = require("path");
 const ssl = {
   key: (0, get_param_1.getParam)(
     "key",
@@ -13,6 +13,8 @@ const ssl = {
   ),
 };
 const config = {
+  // server index.html on 404
+  spa: true,
   // folder to static serve files
   folder: process.argv[2],
   // max cache size prevents oom, set to 0 to disable cache

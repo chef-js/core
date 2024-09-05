@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * shortcut in plugin for
  * this.to(topic).emit(event, id, data)
@@ -51,15 +50,17 @@ export type Server = {
   config: Config;
   [property: string]: Property;
 };
+export type NextFunction = () => void;
+export type ResponseOrRequest = Record<string, any>;
 /**
  * responseOrRequest - depending on flavor socket/uws
  * requestOrResponse - depending on flavor socket/uws
  */
-export type Request = (
-  responseOrRequest: object | any,
-  requestOrResponse: object | any,
-  next?: () => void,
-) => void;
+export type RequestHandler = (
+  responseOrRequest: ResponseOrRequest,
+  requestOrResponse: ResponseOrRequest,
+  next?: NextFunction,
+) => boolean | void;
 /**
  * each filereader response should contain those
  */
@@ -82,6 +83,7 @@ export type FileReaderCache = {
  * chef config
  */
 export type Config = {
+  spa: boolean;
   port: number;
   folder: string;
   join: string;
@@ -102,6 +104,6 @@ export type Config = {
  */
 export type CoreConsumer = {
   createServer(config: Config): Promise<Server>;
-  requestHandler(fileReaderCache: FileReaderCache): Request;
+  requestHandler(fileReaderCache: FileReaderCache): RequestHandler;
 };
 //# sourceMappingURL=types.d.ts.map
