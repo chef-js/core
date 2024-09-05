@@ -92,6 +92,7 @@ export type FileReaderCache = { get: FileReader };
  * chef config
  */
 export type Config = {
+  spa: boolean;
   port: number;
   folder: string;
   join: string;

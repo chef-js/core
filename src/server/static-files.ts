@@ -1,7 +1,9 @@
+import { existsSync, lstatSync, readFileSync } from "fs";
+
+import { FileReaderResponse } from "../types";
+import config from "../config";
 import { join } from "path";
 import { lookup } from "mime-types";
-import { existsSync, lstatSync, readFileSync } from "fs";
-import { FileReaderResponse } from "../types";
 
 export default function createFileReader(
   folder: string = "",
@@ -24,6 +26,10 @@ export default function createFileReader(
       return fileReader(`${url}/index.html`);
     }
 
-    return { mime, body: readFileSync(filename), status: 200 };
+    if (config.spa) {
+      return { mime, body: readFileSync(filename), status: 200 };
+    } else {
+      return null;
+    }
   };
 }

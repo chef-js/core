@@ -49,7 +49,12 @@ export async function chef(
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
-    server.get("/*", requestHandler(fileReaderCache));
+    server.get("/*", (req, res, next) => {
+      const response = requestHandler(fileReaderCache)(req, res);
+      if (!response) {
+        next();
+      }
+    });
   });
 
   // mandatory started message

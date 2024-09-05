@@ -1,6 +1,6 @@
 import { Config } from "./types";
-import { resolve } from "path";
 import { getParam } from "./get-param";
+import { resolve } from "path";
 
 const ssl: { key: string; cert: string } = {
   key: getParam("key", resolve(__dirname, "..", "ssl", "example.key")),
@@ -8,6 +8,8 @@ const ssl: { key: string; cert: string } = {
 };
 
 const config: Config = {
+  // server index.html on 404
+  spa: true,
   // folder to static serve files
   folder: process.argv[2],
   // max cache size prevents oom, set to 0 to disable cache
