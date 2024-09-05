@@ -51,12 +51,7 @@ export async function chef(
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
-    server.get(
-      "/*",
-      (req: ResponseOrRequest, res: ResponseOrRequest, next: NextFunction) => {
-        requestHandler(fileReaderCache)(req, res, next);
-      },
-    );
+    server.get("/*", requestHandler(fileReaderCache));
   });
 
   // mandatory started message

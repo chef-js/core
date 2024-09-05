@@ -37,9 +37,7 @@ async function chef(config, { createServer, requestHandler }) {
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
-    server.get("/*", (req, res, next) => {
-      requestHandler(fileReaderCache)(req, res, next);
-    });
+    server.get("/*", requestHandler(fileReaderCache));
   });
   // mandatory started message
   console.info(`Started ${type} ${ssl ? "https" : "http"} app on port`, port);
