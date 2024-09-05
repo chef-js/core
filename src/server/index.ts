@@ -1,13 +1,14 @@
-import { Cache } from "@pietal.dev/cache";
-import baseConfig from "../config.js";
-import createFileReader from "./static-files.js";
 import {
   Config,
+  CoreConsumer,
   FileReader,
   FileReaderCache,
   Server,
-  CoreConsumer,
 } from "../types.js";
+
+import { Cache } from "@pietal.dev/cache";
+import baseConfig from "../config.js";
+import createFileReader from "./static-files.js";
 import { populatePlugins } from "../plugins";
 
 /**
@@ -42,14 +43,14 @@ export async function chef(
     ? new Cache(fileReader, maxCacheSize)
     : { get: fileReader };
 
+  // make server listen on process.env.PORT || 4200
+  await server.start(port);
+
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
     // everything goes to the reader
     server.get("/*", requestHandler(fileReaderCache));
   });
-
-  // make server listen on process.env.PORT || 4200
-  await server.start(port);
 
   // mandatory started message
   console.info(`Started ${type} ${ssl ? "https" : "http"} app on port`, port);
