@@ -14,22 +14,13 @@ This package is a core dependency used in three flavors:
 
 ## Minimal Chat Demo
 
-Check out the minimal chat demo at https://chef-js-socket.herokuapp.com/
+Check out the minimal chat demo at https://chef-socket.pietal.dev
 
 To set up the demo using `chef-socket`, run the following commands:
 
 ```bash
 $ yarn add chef-socket
 $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
-```
-
-Alternatively, for microWebSockets, see https://chef-js-uws.herokuapp.com/
-
-To set up the demo using `chef-uws`, run the following commands:
-
-```bash
-$ yarn add chef-uws
-$ yarn chef-uws node_modules/chef-uws/demo --plugin node_modules/chef-core/chat.js
 ```
 
 ## API Documentation

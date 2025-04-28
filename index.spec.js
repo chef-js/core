@@ -96,7 +96,7 @@ describe("GIVEN chef is provided", () => {
       const server = await chef(
         {
           folder: "demo",
-          port: 4200,
+          port: 3000,
           plugins: {
             chat: function () {
               done();

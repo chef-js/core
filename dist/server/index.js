@@ -32,7 +32,7 @@ async function chef(config, { createServer, requestHandler }) {
   const fileReaderCache = maxCacheSize
     ? new cache_1.Cache(fileReader, maxCacheSize)
     : { get: fileReader };
-  // make server listen on process.env.PORT || 4200
+  // make server listen on process.env.PORT || 3000
   await server.start(port);
   // give library consumer one frame to setup his own routes
   setTimeout(() => {
@@ -40,7 +40,7 @@ async function chef(config, { createServer, requestHandler }) {
     server.get("/*", requestHandler(fileReaderCache));
   });
   // mandatory started message
-  console.info(`Started ${type} ${ssl ? "https" : "http"} app on port`, port);
+  console.info(`Started ${type} ${ssl ? "https" : "http"}://localhost:${port}`);
   if (Object.keys(plugins).length) {
     console.info("with plugin(s)", Object.keys(plugins).join(", "));
   }
