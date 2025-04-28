@@ -61,7 +61,7 @@ $ npx chef-socket dist --plugin ./path/to/plugin.js --debug
 You can read the default configuration by using the following code:
 
 ```ts
-const config = require("chef-core/config");
+import { config, type Config } from "chef-core";
 ```
 
 Alternatively, you can declare a custom configuration by omitting the defaults that don't suit your needs. Here's how the default config looks like:
@@ -73,10 +73,10 @@ Alternatively, you can declare a custom configuration by omitting the defaults t
   "maxCacheSize": "--max-cache-size", // default 128
   "join": "--join", // default /join
   "leave": "--leave", // default /leave
-  "plugins": "--plugin path/to/plugin.js", // default off
-  "spa": "--spa", // default off
-  "ssl": "--ssl", // default off
-  "debug": "--debug" // default off
+  "plugins": "--plugin path/to/plugin.js", // default {}
+  "spa": "--spa", // default undefined
+  "ssl": "--ssl", // default false
+  "debug": "--debug" // default false
 }
 ```
 
@@ -84,41 +84,13 @@ You can also check the resulting `server.config` after the server has started.
 
 ## Plugins
 
-To use plugins, you can import the `chef-socket` or `chef-uws` package and include the desired plugin. Here's an example:
+To use plugins, you can import the `chef-socket` package and include the desired plugin. Here's an example:
 
 ```ts
-const chef = require("chef-socket"); // or chef-uws
+const cook = require("chef-socket"); // or chef-uws
 const chat = require("chef-core/chat");
 
-chef({ plugins: { chat } }).then((server) => {
-  console.log(server.config);
-});
-```
-
-## Shim
-
-You can use the `{ initialize, handshake }` format for plugins as well. Here's an example:
-
-```ts
-const chef = require("chef-socket"); // or chef-uws
-const shim = require("chef-core/shim");
-
-const example = shim("example", {
-  initialize: (io) => {
-    // initialize your game, this happens once
-    console.log("example plugin initialized");
-  },
-  handshake: (socket) => {
-    // this happens once per socket, on connection
-    console.log("socket connected");
-
-    socket.on("event", ({ id, event, data }) => {
-      // do something with an event
-    });
-  },
-});
-
-chef({ plugins: { example } }).then((server) => {
+cook({ plugins: { chat } }).then((server) => {
   console.log(server.config);
 });
 ```

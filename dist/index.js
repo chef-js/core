@@ -35,9 +35,12 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createFileReader = exports.getUrl = void 0;
+exports.config =
+  exports.cook =
+  exports.createFileReader =
+  exports.getUrl =
+    void 0;
 __exportStar(require("./types"), exports);
-__exportStar(require("./server"), exports);
 __exportStar(require("./plugins"), exports);
 __exportStar(require("./get-param"), exports);
 var get_url_1 = require("./server/get-url");
@@ -52,5 +55,19 @@ Object.defineProperty(exports, "createFileReader", {
   enumerable: true,
   get: function () {
     return __importDefault(static_files_1).default;
+  },
+});
+var server_1 = require("./server");
+Object.defineProperty(exports, "cook", {
+  enumerable: true,
+  get: function () {
+    return __importDefault(server_1).default;
+  },
+});
+var config_1 = require("./config");
+Object.defineProperty(exports, "config", {
+  enumerable: true,
+  get: function () {
+    return __importDefault(config_1).default;
   },
 });

@@ -5,7 +5,7 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chef = chef;
+exports.default = cook;
 const cache_1 = require("@pietal.dev/cache");
 const config_js_1 = __importDefault(require("../config.js"));
 const static_files_js_1 = __importDefault(require("./static-files.js"));
@@ -16,14 +16,14 @@ const plugins_1 = require("../plugins");
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */
-async function chef(config, { createServer, requestHandler }) {
-  const mergedConfig = { ...config_js_1.default, ...config };
+async function cook(inputConfig, { createServer, requestHandler }) {
+  const config = { ...config_js_1.default, ...inputConfig };
   // polulate config.plugins by requiring optional files
-  await (0, plugins_1.populatePlugins)(mergedConfig);
+  await (0, plugins_1.populatePlugins)(config);
   // create the express or uws server inside a wrapper
-  const server = await createServer(mergedConfig);
+  const server = await createServer(config);
   // extend with resulting config
-  server.config = mergedConfig;
+  server.config = config;
   // spread
   const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
   // create the static files reader based on folder

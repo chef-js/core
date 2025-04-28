@@ -9,9 +9,11 @@ const ssl: { key: string; cert: string } = {
 
 const DEFAULT_PORT = "3000";
 
+const DEFAULT_FOLDER = ".";
+
 const config: Config = {
   // folder to static serve files
-  folder: process.argv[2] || ".",
+  folder: process.argv[2] || DEFAULT_FOLDER,
   // port on which the server listens
   port: Number(getParam("port", process.env.PORT || DEFAULT_PORT)),
   // max cache size prevents oom, set to 0 to disable cache

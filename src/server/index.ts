@@ -3,8 +3,6 @@ import {
   CoreConsumer,
   FileReader,
   FileReaderCache,
-  NextFunction,
-  ResponseOrRequest,
   Server,
 } from "../types.js";
 
@@ -19,20 +17,20 @@ import { populatePlugins } from "../plugins";
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */
-export async function chef(
-  config: Partial<Config>,
+export default async function cook(
+  inputConfig: Partial<Config>,
   { createServer, requestHandler }: CoreConsumer,
 ): Promise<Server> {
-  const mergedConfig: Config = { ...baseConfig, ...config };
+  const config = { ...baseConfig, ...inputConfig };
 
   // polulate config.plugins by requiring optional files
-  await populatePlugins(mergedConfig);
+  await populatePlugins(config);
 
   // create the express or uws server inside a wrapper
-  const server: Server = await createServer(mergedConfig);
+  const server: Server = await createServer(config);
 
   // extend with resulting config
-  server.config = mergedConfig;
+  server.config = config;
 
   // spread
   const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;

@@ -1,5 +1,6 @@
-import { resolve } from "path";
 import { Config, Plugin } from "./types.js";
+
+import { resolve } from "path";
 
 export async function populatePlugins(config: Config): Promise<void> {
   // get plugins from bash regex
@@ -11,7 +12,7 @@ export async function populatePlugins(config: Config): Promise<void> {
     // we need to get our promises in order
     const syncMap: Promise<{ default: Plugin }>[] = matches.map(
       (path: string) => {
-        const [_, plugin] = path.split(" ");
+        const [, plugin] = path.split(" ");
 
         return import(resolve(plugin));
       },

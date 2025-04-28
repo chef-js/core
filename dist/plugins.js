@@ -9,7 +9,7 @@ async function populatePlugins(config) {
   if (matches) {
     // we need to get our promises in order
     const syncMap = matches.map((path) => {
-      const [_, plugin] = path.split(" ");
+      const [, plugin] = path.split(" ");
       return import((0, path_1.resolve)(plugin));
     });
     // so the main function awaits properly

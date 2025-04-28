@@ -5,8 +5,8 @@ import { Config, CoreConsumer, Server } from "../types.js";
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */
-export declare function chef(
-  config: Partial<Config>,
+export default function cook(
+  inputConfig: Partial<Config>,
   { createServer, requestHandler }: CoreConsumer,
 ): Promise<Server>;
 //# sourceMappingURL=index.d.ts.map
