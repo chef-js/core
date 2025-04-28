@@ -75,31 +75,18 @@ const config = require("chef-core/config");
 
 Alternatively, you can declare a custom configuration by omitting the defaults that don't suit your needs. Here's how the default config looks like:
 
-```ts
-const { Config, getParams } = require("chef-core");
-
-const config: Config = {
-  // serve 404s as index.html
-  spa: true,
-  // folder to static serve files
-  folder: process.argv[2],
-  // max cache size prevents oom, set to 0 to disable cache
-  maxCacheSize: parseInt(getParam("maxCacheSize", "128")),
-  // this enables http/ws logs
-  debug: process.argv.includes("--debug"),
-  // ssl = undefined | { key, cert }
-  ssl: process.argv.includes("--ssl") ? ssl : undefined,
-  // port on which the server listens
-  port: Number(getParam("port", process.env.PORT || "4200")),
-  // typeof Record<string, Plugin>, for cli use --plugin ./plugin.js any x of times
-  plugins: {},
-  // handshake event
-  join: getParam("join", "/join"),
-  // disconnect from room event
-  leave: getParam("leave", "/leave"),
-  // type of server to start
-  type: "core", // "core" | "express" | "socket" | "uws"
-};
+```json
+{
+  "folder": "first parameter of cli", // default .
+  "port": "--port", // default 3000
+  "maxCacheSize": "--max-cache-size", // default 128
+  "join": "--join", // default /join
+  "leave": "--leave", // default /leave
+  "plugins": "--plugin path/to/plugin.js", // default off
+  "spa": "--spa", // default off
+  "ssl": "--ssl", // default off
+  "debug": "--debug" // default off
+}
 ```
 
 You can also check the resulting `server.config` after the server has started.

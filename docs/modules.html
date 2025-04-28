@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en">
+<html class="default" lang="en" data-base="./">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -21,184 +21,526 @@
       document.body.style.display = "none";
       setTimeout(
         () =>
-          app ? app.showPage() : document.body.style.removeProperty("display"),
+          window.app
+            ? app.showPage()
+            : document.body.style.removeProperty("display"),
         500,
       );
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search" data-base=".">
-          <div class="field">
-            <label
-              for="tsd-search-field"
-              class="tsd-widget tsd-toolbar-icon search no-caption"
-              ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <use href="assets/icons.svg#icon-search"></use></svg></label
-            ><input type="text" id="tsd-search-field" aria-label="Search" />
+        <a href="index.html" class="title">Chef-JS Core</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
           </div>
-          <div class="field"><div id="tsd-toolbar-links"></div></div>
-          <ul class="results">
-            <li class="state loading">Preparing search index...</li>
-            <li class="state failure">The search index is not available</li>
-          </ul>
-          <a href="index.html" class="title">Chef-JS Core</a>
-        </div>
-        <div class="table-cell" id="tsd-widgets">
-          <a
-            href="#"
-            class="tsd-widget tsd-toolbar-icon menu no-caption"
-            data-toggle="menu"
-            aria-label="Menu"
-            ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <use href="assets/icons.svg#icon-menu"></use></svg
-          ></a>
-        </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="assets/icons.svg#icon-menu"></use></svg
+        ></a>
       </div>
     </header>
     <div class="container container-main">
       <div class="col-content">
-        <div class="tsd-page-title"><h2>Chef-JS Core</h2></div>
-        <section class="tsd-panel-group tsd-index-group">
-          <section class="tsd-panel tsd-index-panel">
-            <h3 class="tsd-index-heading uppercase">Index</h3>
-            <section class="tsd-index-section">
-              <h3 class="tsd-index-heading">Type Aliases</h3>
-              <div class="tsd-index-list">
-                <a href="types/Config.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Config</span></a
+        <div class="tsd-page-title">
+          <ul class="tsd-breadcrumb" aria-label="Breadcrumb"></ul>
+          <h1>Chef-JS Core</h1>
+        </div>
+        <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
+          <summary
+            class="tsd-accordion-summary"
+            data-key="section-Type Aliases"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Type Aliases</h2>
+          </summary>
+          <dl class="tsd-member-summaries">
+            <dt class="tsd-member-summary" id="config">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/CoreConsumer.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Core<wbr />Consumer</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Config.html">Config</a
+                ><a
+                  href="#config"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="coreconsumer">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/Event.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Event</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/CoreConsumer.html">CoreConsumer</a
+                ><a
+                  href="#coreconsumer"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="event">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/FileReader.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>File<wbr />Reader</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Event.html">Event</a
+                ><a href="#event" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="filereader">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/FileReaderCache.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>File<wbr />Reader<wbr />Cache</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/FileReader.html">FileReader</a
+                ><a
+                  href="#filereader"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="filereadercache">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/FileReaderResponse.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>File<wbr />Reader<wbr />Response</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/FileReaderCache.html">FileReaderCache</a
+                ><a
+                  href="#filereadercache"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="filereaderresponse">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/NextFunction.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Next<wbr />Function</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/FileReaderResponse.html">FileReaderResponse</a
+                ><a
+                  href="#filereaderresponse"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="nextfunction">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/Plugin.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Plugin</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/NextFunction.html">NextFunction</a
+                ><a
+                  href="#nextfunction"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="plugin">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/Property.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Property</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Plugin.html">Plugin</a
+                ><a
+                  href="#plugin"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="property">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/RequestHandler.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Request<wbr />Handler</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Property.html">Property</a
+                ><a
+                  href="#property"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="requesthandler">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/ResponseOrRequest.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Response<wbr />Or<wbr />Request</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/RequestHandler.html">RequestHandler</a
+                ><a
+                  href="#requesthandler"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="responseorrequest">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/Server.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Server</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/ResponseOrRequest.html">ResponseOrRequest</a
+                ><a
+                  href="#responseorrequest"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="server">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/ServerContext.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Server<wbr />Context</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Server.html">Server</a
+                ><a
+                  href="#server"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="servercontext">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/ServerEmitEvent.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Server<wbr />Emit<wbr />Event</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/ServerContext.html">ServerContext</a
+                ><a
+                  href="#servercontext"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="serveremitevent">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/ServerToTopic.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Server<wbr />To<wbr />Topic</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/ServerEmitEvent.html">ServerEmitEvent</a
+                ><a
+                  href="#serveremitevent"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="servertotopic">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/Socket.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>Socket</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/ServerToTopic.html">ServerToTopic</a
+                ><a
+                  href="#servertotopic"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="socket">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-                <a href="types/UWebSocket.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-2097152"></use></svg
-                  ><span>UWeb<wbr />Socket</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/Socket.html">Socket</a
+                ><a
+                  href="#socket"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="uwebsocket">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Type Alias"
                 >
-              </div>
-            </section>
-            <section class="tsd-index-section">
-              <h3 class="tsd-index-heading">Functions</h3>
-              <div class="tsd-index-list">
-                <a href="functions/chef.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>chef</span></a
+                  <use href="assets/icons.svg#icon-2097152"></use></svg
+                ><a href="types/UWebSocket.html">UWebSocket</a
+                ><a
+                  href="#uwebsocket"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+          </dl>
+        </details>
+        <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
+          <summary class="tsd-accordion-summary" data-key="section-Functions">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Functions</h2>
+          </summary>
+          <dl class="tsd-member-summaries">
+            <dt class="tsd-member-summary" id="chef">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-                <a href="functions/createFileReader.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>create<wbr />File<wbr />Reader</span></a
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/chef.html">chef</a
+                ><a href="#chef" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="createfilereader">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-                <a href="functions/getParam.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>get<wbr />Param</span></a
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/createFileReader.html">createFileReader</a
+                ><a
+                  href="#createfilereader"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="getparam">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-                <a href="functions/getPlugin.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>get<wbr />Plugin</span></a
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/getParam.html">getParam</a
+                ><a
+                  href="#getparam"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="getplugin">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-                <a href="functions/getUrl.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>get<wbr />Url</span></a
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/getPlugin.html">getPlugin</a
+                ><a
+                  href="#getplugin"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="geturl">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-                <a href="functions/populatePlugins.html" class="tsd-index-link"
-                  ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                    <use href="assets/icons.svg#icon-64"></use></svg
-                  ><span>populate<wbr />Plugins</span></a
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/getUrl.html">getUrl</a
+                ><a
+                  href="#geturl"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+            <dt class="tsd-member-summary" id="populateplugins">
+              <span class="tsd-member-summary-name"
+                ><svg
+                  class="tsd-kind-icon"
+                  viewBox="0 0 24 24"
+                  aria-label="Function"
                 >
-              </div>
-            </section>
-          </section>
-        </section>
+                  <use href="assets/icons.svg#icon-64"></use></svg
+                ><a href="functions/populatePlugins.html">populatePlugins</a
+                ><a
+                  href="#populateplugins"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="assets/icons.svg#icon-anchor"></use></svg></a
+              ></span>
+            </dt>
+            <dd class="tsd-member-summary"></dd>
+          </dl>
+        </details>
       </div>
       <div class="col-sidebar">
         <div class="page-menu">
           <div class="tsd-navigation settings">
             <details class="tsd-accordion">
               <summary class="tsd-accordion-summary">
-                <h3>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <use href="assets/icons.svg#icon-chevronDown"></use></svg
-                  >Settings
-                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <use href="assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
               </summary>
               <div class="tsd-accordion-details">
                 <div class="tsd-filter-visibility">
@@ -314,19 +656,249 @@
               </div>
             </details>
           </div>
+          <details open class="tsd-accordion tsd-page-navigation">
+            <summary class="tsd-accordion-summary">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <use href="assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
+            </summary>
+            <div class="tsd-accordion-details">
+              <details open class="tsd-accordion tsd-page-navigation-section">
+                <summary
+                  class="tsd-accordion-summary"
+                  data-key="section-Type Aliases"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <use href="assets/icons.svg#icon-chevronDown"></use></svg
+                  >Type Aliases
+                </summary>
+                <div>
+                  <a href="#config"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Config</span></a
+                  ><a href="#coreconsumer"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Core<wbr />Consumer</span></a
+                  ><a href="#event"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Event</span></a
+                  ><a href="#filereader"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>File<wbr />Reader</span></a
+                  ><a href="#filereadercache"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>File<wbr />Reader<wbr />Cache</span></a
+                  ><a href="#filereaderresponse"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>File<wbr />Reader<wbr />Response</span></a
+                  ><a href="#nextfunction"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Next<wbr />Function</span></a
+                  ><a href="#plugin"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Plugin</span></a
+                  ><a href="#property"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Property</span></a
+                  ><a href="#requesthandler"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Request<wbr />Handler</span></a
+                  ><a href="#responseorrequest"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Response<wbr />Or<wbr />Request</span></a
+                  ><a href="#server"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Server</span></a
+                  ><a href="#servercontext"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Server<wbr />Context</span></a
+                  ><a href="#serveremitevent"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Server<wbr />Emit<wbr />Event</span></a
+                  ><a href="#servertotopic"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Server<wbr />To<wbr />Topic</span></a
+                  ><a href="#socket"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>Socket</span></a
+                  ><a href="#uwebsocket"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Type Alias"
+                    >
+                      <use href="assets/icons.svg#icon-2097152"></use></svg
+                    ><span>UWeb<wbr />Socket</span></a
+                  >
+                </div>
+              </details>
+              <details open class="tsd-accordion tsd-page-navigation-section">
+                <summary
+                  class="tsd-accordion-summary"
+                  data-key="section-Functions"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <use href="assets/icons.svg#icon-chevronDown"></use></svg
+                  >Functions
+                </summary>
+                <div>
+                  <a href="#chef"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>chef</span></a
+                  ><a href="#createfilereader"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>create<wbr />File<wbr />Reader</span></a
+                  ><a href="#getparam"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>get<wbr />Param</span></a
+                  ><a href="#getplugin"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>get<wbr />Plugin</span></a
+                  ><a href="#geturl"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>get<wbr />Url</span></a
+                  ><a href="#populateplugins"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Function"
+                    >
+                      <use href="assets/icons.svg#icon-64"></use></svg
+                    ><span>populate<wbr />Plugins</span></a
+                  >
+                </div>
+              </details>
+            </div>
+          </details>
         </div>
         <div class="site-menu">
           <nav class="tsd-navigation">
-            <a href="modules.html" class="current"
-              ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                <use href="assets/icons.svg#icon-1"></use></svg
-              ><span>Chef-JS Core</span></a
-            >
-            <ul
-              class="tsd-small-nested-navigation"
-              id="tsd-nav-container"
-              data-base="."
-            >
+            <a href="modules.html" class="current">Chef-JS Core</a>
+            <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
               <li>Loading...</li>
             </ul>
           </nav>
