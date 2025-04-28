@@ -5,13 +5,11 @@ import config from "../config";
 import { join } from "path";
 import { lookup } from "mime-types";
 
-const readFile = (folder: string, filename = "index.html") => {
+const readFile = (path: string) => {
   try {
-    const path = join(folder, filename);
-
     return readFileSync(path, { encoding: "utf8" }) || "";
   } catch (_err) {
-    return "";
+    return "<html></html>";
   }
 };
 
@@ -20,27 +18,31 @@ const getMimeFromURL = (url: string) =>
 
 export default function createFileReader(folder: string): FileReader {
   // get main index
-  const indexHTML = readFile(folder);
+  const indexURL = "index.html";
+  const indexHTML = readFile(join(folder, indexURL));
 
   // this is used as file reader cache
-  return function fileReader(url: string): FileReaderResponse {
+  return function fileReader(inputURL: string): FileReaderResponse {
+    const url = inputURL || indexURL;
     const mime = getMimeFromURL(url);
     const filename = join(folder, url);
 
+    if (config.debug) {
+      console.log(filename);
+    }
+
     if (!existsSync(filename)) {
-      return { mime: "text/html", body: indexHTML, status: 200 };
+      if (config.spa) {
+        return { mime: "text/html", body: indexHTML, status: 200 };
+      } else {
+        return { mime: "text/plain", body: "", status: 404 };
+      }
     }
 
     if (lstatSync(filename).isDirectory()) {
       return fileReader(`${url}/index.html`);
     }
 
-    if (config.spa) {
-      const body = readFileSync(filename);
-
-      return { mime, body, status: 200 };
-    } else {
-      return null;
-    }
+    return { mime, body: readFile(filename), status: 200 };
   };
 }

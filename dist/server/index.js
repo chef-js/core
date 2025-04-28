@@ -24,6 +24,7 @@ async function cook(inputConfig, { createServer, requestHandler }) {
   const server = await createServer(config);
   // extend with resulting config
   server.config = config;
+  server.config.folder ||= ".";
   // spread
   const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
   // create the static files reader based on folder

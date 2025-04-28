@@ -1,10 +1,4 @@
-import {
-  Config,
-  CoreConsumer,
-  FileReader,
-  FileReaderCache,
-  Server,
-} from "../types.js";
+import { Config, CoreConsumer, FileReaderCache, Server } from "../types.js";
 
 import { Cache } from "@pietal.dev/cache";
 import baseConfig from "../config.js";
@@ -21,7 +15,7 @@ export default async function cook(
   inputConfig: Partial<Config>,
   { createServer, requestHandler }: CoreConsumer,
 ): Promise<Server> {
-  const config = { ...baseConfig, ...inputConfig };
+  const config: Config = { ...baseConfig, ...inputConfig };
 
   // polulate config.plugins by requiring optional files
   await populatePlugins(config);
@@ -31,12 +25,13 @@ export default async function cook(
 
   // extend with resulting config
   server.config = config;
+  server.config.folder ||= ".";
 
   // spread
   const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
 
   // create the static files reader based on folder
-  const fileReader: FileReader = createFileReader(folder);
+  const fileReader = createFileReader(folder);
 
   // and create a cache for above
   const fileReaderCache: FileReaderCache = maxCacheSize
