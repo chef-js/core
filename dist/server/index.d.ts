@@ -1,7 +1,7 @@
 import { Config, CoreConsumer, Server } from "../types.js";
 /**
  * this is either
- * @param {Config} config
+ * @param {Config} inputConfig
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */

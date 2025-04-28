@@ -1,6 +1,6 @@
 {
   "name": "chef-core",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "chef-js core functionalities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,7 +29,8 @@
     "pretest": "yarn build",
     "test": "jest",
     "format": "prettier . --write",
-    "precommit": "yarn test && yarn build:docs && yarn format",
+    "lint": "eslint src --fix",
+    "precommit": "yarn lint && yarn test && yarn build:docs && yarn format",
     "amend": "yarn precommit && git commit -a --am --no-edit"
   },
   "repository": "git://github.com/chef-js/core.git",

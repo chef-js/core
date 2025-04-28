@@ -13,7 +13,7 @@ import { populatePlugins } from "../plugins";
 
 /**
  * this is either
- * @param {Config} config
+ * @param {Config} inputConfig
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */

@@ -12,7 +12,7 @@ const static_files_js_1 = __importDefault(require("./static-files.js"));
 const plugins_1 = require("../plugins");
 /**
  * this is either
- * @param {Config} config
+ * @param {Config} inputConfig
  * @param {CoreConsumer} coreConsumer
  * @returns {Server}
  */
