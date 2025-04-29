@@ -1,6 +1,6 @@
 {
   "name": "chef-core",
-  "version": "4.1.9",
+  "version": "4.2.0",
   "description": "static file server chef-js core functionalities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

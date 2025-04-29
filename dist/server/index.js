@@ -26,12 +26,12 @@ async function cook(inputConfig, { createServer, requestHandler }) {
   server.config = config;
   server.config.folder ||= ".";
   // spread
-  const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
+  const { folder, cache, type, port, plugins, ssl } = server.config;
   // create the static files reader based on folder
   const fileReader = (0, static_files_js_1.default)(folder);
   // and create a cache for above
-  const fileReaderCache = maxCacheSize
-    ? new cache_1.Cache(fileReader, maxCacheSize)
+  const fileReaderCache = cache
+    ? new cache_1.Cache(fileReader, cache)
     : { get: fileReader };
   // make server listen on process.env.PORT || 3000
   await server.start(port);

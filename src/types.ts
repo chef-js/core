@@ -88,7 +88,7 @@ export type FileReaderResponse = {
 export type FileReader = (url: string) => FileReaderResponse;
 
 /**
- * filereader cache is a latermom cache with config.maxCacheSize
+ * filereader cache is a latermom cache with config.cache
  */
 export type FileReaderCache = { get: FileReader };
 
@@ -104,8 +104,8 @@ export type Config = {
   debug: boolean;
   type: "core" | "express" | "socket" | "uws";
   plugins: { [plugin: string]: Plugin };
-  ssl?: { key: string; cert: string };
-  maxCacheSize: number;
+  ssl: { key: string; cert: string } | null;
+  cache: number;
 };
 
 /**

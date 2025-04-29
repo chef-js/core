@@ -50,7 +50,7 @@ For detailed API documentation, and types, refer to the [chef-core API](https://
 To serve the `dist` folder with express flavor on localhost:443, with development ssl, setting max file cache to 1000 entries:
 
 ```bash
-$ npx chef-express dist --ssl --port 443 --maxCacheSize 1000
+$ npx chef-express dist --ssl --port 443 --cache 1000
 ```
 
 To serve the `dist` folder with socket flavor on localhost:3000, with a WebSocket plugin, in debug mode:
@@ -73,13 +73,13 @@ Alternatively, you can declare a custom configuration by omitting the values whe
 {
   "folder": ".",      // first parameter of cli
   "port": 3000,       // --port n
-  "maxCacheSize": 0,  // --max-cache-size n
+  "cache": 0,         // --cache n
   "join": "/join",    // --join /join
   "leave": "/leave",  // --leave /leave
   "plugins": {},      // --plugin path/to/plugin.js
   "spa": false,       // --spa
   "debug": false,     // --debug
-  "ssl": undefined,   // --ssl
+  "ssl": null,        // --ssl
 }
 ```
 

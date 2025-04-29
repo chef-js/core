@@ -74,7 +74,7 @@ export type FileReaderResponse = {
  */
 export type FileReader = (url: string) => FileReaderResponse;
 /**
- * filereader cache is a latermom cache with config.maxCacheSize
+ * filereader cache is a latermom cache with config.cache
  */
 export type FileReaderCache = {
   get: FileReader;
@@ -93,11 +93,11 @@ export type Config = {
   plugins: {
     [plugin: string]: Plugin;
   };
-  ssl?: {
+  ssl: {
     key: string;
     cert: string;
-  };
-  maxCacheSize: number;
+  } | null;
+  cache: number;
 };
 /**
  * chef-core consumer props

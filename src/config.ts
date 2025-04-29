@@ -19,13 +19,13 @@ const config: Config = {
   // port on which the server listens
   port: Number(getParam("port", DEFAULT_PORT)),
   // max cache size prevents oom, set to 0 to disable cache
-  maxCacheSize: parseInt(getParam("maxCacheSize", DEFAULT_CACHE_SIZE)),
+  cache: parseInt(getParam("cache", DEFAULT_CACHE_SIZE)),
   // this enables http/ws logs
   debug: process.argv.includes("--debug"),
   // serve index.html on 404
   spa: process.argv.includes("--spa"),
-  // ssl = undefined | { key, cert }
-  ssl: process.argv.includes("--ssl") ? ssl : undefined,
+  // ssl = null | { key, cert }
+  ssl: process.argv.includes("--ssl") ? ssl : null,
   // type of server to start
   type: "core", // "express" | "socket" | "uws"
   // {Record<string, Plugin>} for cli use --plugin ./plugin.js any x of times

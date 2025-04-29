@@ -28,14 +28,14 @@ export default async function cook(
   server.config.folder ||= ".";
 
   // spread
-  const { folder, maxCacheSize, type, port, plugins, ssl } = server.config;
+  const { folder, cache, type, port, plugins, ssl } = server.config;
 
   // create the static files reader based on folder
   const fileReader = createFileReader(folder);
 
   // and create a cache for above
-  const fileReaderCache: FileReaderCache = maxCacheSize
-    ? new Cache(fileReader, maxCacheSize)
+  const fileReaderCache: FileReaderCache = cache
+    ? new Cache(fileReader, cache)
     : { get: fileReader };
 
   // make server listen on process.env.PORT || 3000

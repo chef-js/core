@@ -46,11 +46,11 @@ describe("GIVEN chef is provided", () => {
       const defaultValues = {
         folder: ".",
         port: 3000,
-        maxCacheSize: 128,
+        cache: 0,
         join: "/join",
         leave: "/leave",
         plugins: {},
-        ssl: undefined,
+        ssl: null,
         spa: false,
         debug: false,
       };
