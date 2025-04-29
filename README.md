@@ -1,41 +1,55 @@
 # chef-core
 
-<img style="max-width: 100%; float: right;" src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg" alt="kisscc0" width="200" height="200" />
-
 [<img src="https://img.shields.io/npm/v/chef-core?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-core?activeTab=versions)
 [<img src="https://img.shields.io/circleci/build/github/chef-js/core/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/core)
+rt cooking!
 
-**chef-core** is a micro-service manager for web sockets and a static files server, designed for Node.js and written in TypeScript. It includes tests to ensure reliability.
+- **chef-*** is a **static-files-server**
+- written in **typescript**
+- usable as a **command-line-tool** (or **runtime library**)
+- with **many tests** and **continuous-integration**
+- optional **404** fallback to **index.html** with a **200** status code (spa)
+- optional **cache**
+- optional **web-sockets** micro-service manager on **same port**
 
-## Static Serve Folder
+# Express
 
-```bash
-# Serve 'dist' folder using express flavor on localhost:3000
-$ npx chef-express dist
+[<img src="https://img.shields.io/npm/v/chef-express?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-express?activeTab=versions)
+[<img src="https://img.shields.io/circleci/build/github/chef-js/express/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/express)
 
-# Serve 'dist' folder using websockets flavor on localhost:3000
-$ npx chef-socket dist
+The most basic flavor of the core library - serve folder. port defaults to 3000
+
+```
+npx chef-express folder
 ```
 
-## Chat Demo
+see [chef-express](https://github.com/chef-js/express) for more information about command line parameters
 
-Check out the minimal chat demo at https://chef-socket.pietal.dev
+# Socket
 
-To set up the demo using `chef-socket`, run the following commands:
+[<img src="https://img.shields.io/npm/v/chef-socket?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-socket?activeTab=versions)
+[<img src="https://img.shields.io/circleci/build/github/chef-js/socket/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/socket)
 
-```bash
-$ yarn add chef-socket
-$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+On top of the base adds socket.io for websockets functionality on the same port.
+
 ```
+npx chef-socket folder [--plugin node_modules/chef-socket/chat.js]
+```
+
+see [chef-socket](https://github.com/chef-js/socket) to find out more
+
+## demo (with chat plugin)
+
+https://chef-socket.pietal.dev/
 
 ## API Documentation
 
 For detailed API documentation, and types, refer to the [chef-core API](https://chef-js.github.io/core/)
 
-To serve the `dist` folder with express flavor on localhost:443, with development ssl, disabling cache:
+To serve the `dist` folder with express flavor on localhost:443, with development ssl, setting max file cache to 1000 entries:
 
 ```bash
-$ npx chef-express dist --ssl --port 443 --maxCacheSize 0
+$ npx chef-express dist --ssl --port 443 --maxCacheSize 1000
 ```
 
 To serve the `dist` folder with socket flavor on localhost:3000, with a WebSocket plugin, in debug mode:
@@ -49,40 +63,25 @@ $ npx chef-socket dist --plugin ./path/to/plugin.js --debug
 You can read the default configuration by using the following code:
 
 ```ts
-import { config, type Config } from "chef-core";
+import { config, type Config } from "chef-[core/express/socket]";
 ```
 
 Alternatively, you can declare a custom configuration by omitting the defaults that don't suit your needs. Here's how the default config looks like:
 
 ```js
 {
-  "folder": "first parameter of cli", // default .
-  "port": "--port", // default 3000
-  "maxCacheSize": "--max-cache-size", // default 128
-  "join": "--join", // default /join
-  "leave": "--leave", // default /leave
-  "plugins": "--plugin path/to/plugin.js", // default {}
-  "spa": "--spa", // default undefined
-  "ssl": "--ssl", // default false
-  "debug": "--debug" // default false
+  "folder": ".",      // first parameter of cli
+  "port": 3000,       // --port n
+  "maxCacheSize": 0,   // --max-cache-size n
+  "join": "/join",     // --join /join
+  "leave": "/leave",   // --leave /leave
+  "plugins": {},       // --plugin path/to/plugin.js
+  "spa": false,        // --spa
+  "debug": false,      // --debug
+  "ssl": undefined,    // --ssl
 }
 ```
 
 You can also check the resulting `server.config` after the server has started.
-
-## Plugins
-
-To use plugins, you can import the `chef-socket` package and include the desired plugin. Here's an example:
-
-```ts
-const cook = require("chef-socket"); // or chef-uws
-const chat = require("chef-core/chat");
-
-cook({ plugins: { chat } }).then((server) => {
-  console.log(server.config);
-});
-```
-
-## License
 
 This project is licensed under the MIT License.
