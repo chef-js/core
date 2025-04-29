@@ -9,15 +9,11 @@
 
 ## Static Serve Folder
 
-This library offers three different variants/flavors. Depending on the variant you need, refer to the relevant npm package's readme for instructions.
-
-To get started with the basic usage, follow these steps:
-
 ```bash
 # Serve 'dist' folder using express flavor on localhost:3000
 $ npx chef-express dist
 
-# Serve 'dist' folder using socket.io flavor on localhost:3000
+# Serve 'dist' folder using websockets flavor on localhost:3000
 $ npx chef-socket dist
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "chef-core",
-  "version": "4.1.7",
-  "description": "chef-js core functionalities",
+  "version": "4.1.8",
+  "description": "static file server chef-js core functionalities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -46,7 +46,6 @@
     "escodegen": "^2.1.0"
   },
   "dependencies": {
-    "@babel/traverse": ">=7.23.2",
     "@pietal.dev/cache": "^2.0.2",
     "mime-types": "^3.0.1"
   },
