@@ -3,7 +3,7 @@
 <img style="max-width: 100%; float: right;" src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg" alt="kisscc0" width="200" height="200" />
 
 [<img src="https://img.shields.io/npm/v/chef-core?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-core?activeTab=versions)
-[<img src="https://img.shields.io/circleci/build/github/Prozi/chef-core/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/chef-core)
+[<img src="https://img.shields.io/circleci/build/github/chef-js/core/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/core)
 
 **chef-core** is a micro-service manager for web sockets and a static files server, designed for Node.js and written in TypeScript. It includes tests to ensure reliability.
 
