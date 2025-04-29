@@ -2,7 +2,8 @@
 
 [<img src="https://img.shields.io/npm/v/chef-core?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-core?activeTab=versions)
 [<img src="https://img.shields.io/circleci/build/github/chef-js/core/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/core)
-rt cooking!
+
+## start cooking!
 
 - **chef-*** is a **static-files-server**
 - written in **typescript**
