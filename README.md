@@ -2,7 +2,8 @@
 
 <img style="max-width: 100%; float: right;" src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg" alt="kisscc0" width="200" height="200" />
 
-[<img src="https://badge.fury.io/js/chef-core.svg" alt="npm package version" />](https://badge.fury.io/js/chef-core) [<img src="https://circleci.com/gh/chef-js/core.svg" alt="tests status" />](https://circleci.com/gh/chef-js/core)
+[<img src="https://img.shields.io/npm/v/chef-core?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-core?activeTab=versions)
+[<img src="https://img.shields.io/circleci/build/github/Prozi/chef-core/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/chef-core)
 
 **chef-core** is a micro-service manager for web sockets and a static files server, designed for Node.js and written in TypeScript. It includes tests to ensure reliability.
 
@@ -57,7 +58,7 @@ import { config, type Config } from "chef-core";
 
 Alternatively, you can declare a custom configuration by omitting the defaults that don't suit your needs. Here's how the default config looks like:
 
-```json
+```js
 {
   "folder": "first parameter of cli", // default .
   "port": "--port", // default 3000
