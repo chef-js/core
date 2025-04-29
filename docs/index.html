@@ -88,13 +88,6 @@
                 <use href="assets/icons.svg#icon-anchor"></use></svg
             ></a>
           </h1>
-          <img
-            style="max-width: 100%; float: right"
-            src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg"
-            alt="kisscc0"
-            width="200"
-            height="200"
-          />
           <p>
             <a href="https://www.npmjs.com/package/chef-core?activeTab=versions"
               ><img
@@ -107,26 +100,76 @@
                 alt="build status"
             /></a>
           </p>
+          <h2 id="start-cooking" class="tsd-anchor-link">
+            start cooking!<a
+              href="#start-cooking"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <ul>
+            <li>
+              <strong>chef-</strong>* is a <strong>static-files-server</strong>
+            </li>
+            <li>written in <strong>typescript</strong></li>
+            <li>
+              usable as a <strong>command-line-tool</strong> (or
+              <strong>runtime library</strong>)
+            </li>
+            <li>
+              with <strong>many tests</strong> and
+              <strong>continuous-integration</strong>
+            </li>
+            <li>
+              optional <strong>404</strong> fallback to
+              <strong>index.html</strong> with a <strong>200</strong> status
+              code (spa)
+            </li>
+            <li>optional <strong>cache</strong></li>
+            <li>
+              optional <strong>web-sockets</strong> micro-service manager on
+              <strong>same port</strong>
+            </li>
+          </ul>
+          <h2 id="express" class="tsd-anchor-link">
+            Express<a
+              href="#express"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
           <p>
-            <strong>chef-core</strong> is a micro-service manager for web
-            sockets and a static files server, designed for Node.js and written
-            in TypeScript. It includes tests to ensure reliability.
+            <a
+              href="https://www.npmjs.com/package/chef-express?activeTab=versions"
+              ><img
+                src="https://img.shields.io/npm/v/chef-express?style=for-the-badge&color=success"
+                alt="npm version"
+            /></a>
+            <a href="https://app.circleci.com/pipelines/github/chef-js/express"
+              ><img
+                src="https://img.shields.io/circleci/build/github/chef-js/express/main?style=for-the-badge"
+                alt="build status"
+            /></a>
           </p>
-          <h2 id="static-serve-folder" class="tsd-anchor-link">
-            Static Serve Folder<a
-              href="#static-serve-folder"
-              aria-label="Permalink"
-              class="tsd-anchor-icon"
-              ><svg viewBox="0 0 24 24" aria-hidden="true">
-                <use href="assets/icons.svg#icon-anchor"></use></svg
-            ></a>
-          </h2>
-          <pre><code class="bash"><span class="hl-0"># Serve &#39;dist&#39; folder using express flavor on localhost:3000</span><br/><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">npx</span><span class="hl-2"> </span><span class="hl-3">chef-express</span><span class="hl-2"> </span><span class="hl-3">dist</span><br/><br/><span class="hl-0"># Serve &#39;dist&#39; folder using websockets flavor on localhost:3000</span><br/><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">npx</span><span class="hl-2"> </span><span class="hl-3">chef-socket</span><span class="hl-2"> </span><span class="hl-3">dist</span>
-</code><button type="button">Copy</button></pre>
+          <p>
+            The most basic flavor of the core library - serve folder. port
+            defaults to 3000
+          </p>
+          <pre><code><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-0">chef</span><span class="hl-1">-</span><span class="hl-0">express</span><span class="hl-1"> </span><span class="hl-0">folder</span>
+</code><button>Copy</button></pre>
 
-          <h2 id="chat-demo" class="tsd-anchor-link">
-            Chat Demo<a
-              href="#chat-demo"
+          <p>
+            see
+            <a href="https://github.com/chef-js/express">chef-express</a> for
+            more information about command line parameters
+          </p>
+          <h2 id="socket" class="tsd-anchor-link">
+            Socket<a
+              href="#socket"
               aria-label="Permalink"
               class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -134,18 +177,43 @@
             ></a>
           </h2>
           <p>
-            Check out the minimal chat demo at
-            <a href="https://chef-socket.pietal.dev"
-              >https://chef-socket.pietal.dev</a
+            <a
+              href="https://www.npmjs.com/package/chef-socket?activeTab=versions"
+              ><img
+                src="https://img.shields.io/npm/v/chef-socket?style=for-the-badge&color=success"
+                alt="npm version"
+            /></a>
+            <a href="https://app.circleci.com/pipelines/github/chef-js/socket"
+              ><img
+                src="https://img.shields.io/circleci/build/github/chef-js/socket/main?style=for-the-badge"
+                alt="build status"
+            /></a>
+          </p>
+          <p>
+            On top of the base adds <a href="http://socket.io">socket.io</a> for
+            websockets functionality on the same port.
+          </p>
+          <pre><code><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-0">chef</span><span class="hl-1">-</span><span class="hl-0">socket</span><span class="hl-1"> </span><span class="hl-0">folder</span><span class="hl-1"> [--</span><span class="hl-0">plugin</span><span class="hl-1"> </span><span class="hl-0">node_modules</span><span class="hl-1">/</span><span class="hl-0">chef</span><span class="hl-1">-</span><span class="hl-0">socket</span><span class="hl-1">/</span><span class="hl-0">chat</span><span class="hl-1">.</span><span class="hl-0">js</span><span class="hl-1">]</span>
+</code><button>Copy</button></pre>
+
+          <p>
+            see <a href="https://github.com/chef-js/socket">chef-socket</a> to
+            find out more
+          </p>
+          <h3 id="demo-with-chat-plugin" class="tsd-anchor-link">
+            demo (with chat plugin)<a
+              href="#demo-with-chat-plugin"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h3>
+          <p>
+            <a href="https://chef-socket.pietal.dev/"
+              >https://chef-socket.pietal.dev/</a
             >
           </p>
-          <p>
-            To set up the demo using <code>chef-socket</code>, run the following
-            commands:
-          </p>
-          <pre><code class="bash"><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">yarn</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">chef-socket</span><br/><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">yarn</span><span class="hl-2"> </span><span class="hl-3">chef-socket</span><span class="hl-2"> </span><span class="hl-3">node_modules/chef-socket/demo</span><span class="hl-2"> </span><span class="hl-4">--plugin</span><span class="hl-2"> </span><span class="hl-3">node_modules/chef-core/chat.js</span>
-</code><button type="button">Copy</button></pre>
-
           <h2 id="api-documentation" class="tsd-anchor-link">
             API Documentation<a
               href="#api-documentation"
@@ -161,16 +229,17 @@
           </p>
           <p>
             To serve the <code>dist</code> folder with express flavor on
-            localhost:443, with development ssl, disabling cache:
+            localhost:443, with development ssl, setting max file cache to 1000
+            entries:
           </p>
-          <pre><code class="bash"><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">npx</span><span class="hl-2"> </span><span class="hl-3">chef-express</span><span class="hl-2"> </span><span class="hl-3">dist</span><span class="hl-2"> </span><span class="hl-4">--ssl</span><span class="hl-2"> </span><span class="hl-4">--port</span><span class="hl-2"> </span><span class="hl-5">443</span><span class="hl-2"> </span><span class="hl-4">--maxCacheSize</span><span class="hl-2"> </span><span class="hl-5">0</span>
+          <pre><code class="bash"><span class="hl-2">$</span><span class="hl-1"> </span><span class="hl-3">npx</span><span class="hl-1"> </span><span class="hl-3">chef-express</span><span class="hl-1"> </span><span class="hl-3">dist</span><span class="hl-1"> </span><span class="hl-4">--ssl</span><span class="hl-1"> </span><span class="hl-4">--port</span><span class="hl-1"> </span><span class="hl-5">443</span><span class="hl-1"> </span><span class="hl-4">--maxCacheSize</span><span class="hl-1"> </span><span class="hl-5">1000</span>
 </code><button type="button">Copy</button></pre>
 
           <p>
             To serve the <code>dist</code> folder with socket flavor on
             localhost:3000, with a WebSocket plugin, in debug mode:
           </p>
-          <pre><code class="bash"><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">npx</span><span class="hl-2"> </span><span class="hl-3">chef-socket</span><span class="hl-2"> </span><span class="hl-3">dist</span><span class="hl-2"> </span><span class="hl-4">--plugin</span><span class="hl-2"> </span><span class="hl-3">./path/to/plugin.js</span><span class="hl-2"> </span><span class="hl-4">--debug</span>
+          <pre><code class="bash"><span class="hl-2">$</span><span class="hl-1"> </span><span class="hl-3">npx</span><span class="hl-1"> </span><span class="hl-3">chef-socket</span><span class="hl-1"> </span><span class="hl-3">dist</span><span class="hl-1"> </span><span class="hl-4">--plugin</span><span class="hl-1"> </span><span class="hl-3">./path/to/plugin.js</span><span class="hl-1"> </span><span class="hl-4">--debug</span>
 </code><button type="button">Copy</button></pre>
 
           <h2 id="configuration" class="tsd-anchor-link">
@@ -185,37 +254,20 @@
           <p>
             You can read the default configuration by using the following code:
           </p>
-          <pre><code class="ts"><span class="hl-6">import</span><span class="hl-2"> { </span><span class="hl-7">config</span><span class="hl-2">, </span><span class="hl-6">type</span><span class="hl-2"> </span><span class="hl-7">Config</span><span class="hl-2"> } </span><span class="hl-6">from</span><span class="hl-2"> </span><span class="hl-3">&quot;chef-core&quot;</span><span class="hl-2">;</span>
+          <pre><code class="ts"><span class="hl-6">import</span><span class="hl-1"> { </span><span class="hl-0">config</span><span class="hl-1">, </span><span class="hl-6">type</span><span class="hl-1"> </span><span class="hl-0">Config</span><span class="hl-1"> } </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-3">&quot;chef-[core/express/socket]&quot;</span><span class="hl-1">;</span>
 </code><button type="button">Copy</button></pre>
 
           <p>
             Alternatively, you can declare a custom configuration by omitting
-            the defaults that don't suit your needs. Here's how the default
-            config looks like:
+            the values where below defaults suit you:
           </p>
-          <pre><code class="js"><span class="hl-2">{</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;folder&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;first parameter of cli&quot;</span><span class="hl-2">, </span><span class="hl-0">// default .</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;port&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--port&quot;</span><span class="hl-2">, </span><span class="hl-0">// default 3000</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;maxCacheSize&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--max-cache-size&quot;</span><span class="hl-2">, </span><span class="hl-0">// default 128</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;join&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--join&quot;</span><span class="hl-2">, </span><span class="hl-0">// default /join</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;leave&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--leave&quot;</span><span class="hl-2">, </span><span class="hl-0">// default /leave</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;plugins&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--plugin path/to/plugin.js&quot;</span><span class="hl-2">, </span><span class="hl-0">// default {}</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;spa&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--spa&quot;</span><span class="hl-2">, </span><span class="hl-0">// default undefined</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;ssl&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--ssl&quot;</span><span class="hl-2">, </span><span class="hl-0">// default false</span><br/><span class="hl-2">  </span><span class="hl-3">&quot;debug&quot;</span><span class="hl-2">: </span><span class="hl-3">&quot;--debug&quot;</span><span class="hl-2"> </span><span class="hl-0">// default false</span><br/><span class="hl-2">}</span>
+          <pre><code class="json5"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;folder&quot;</span><span class="hl-1">: </span><span class="hl-3">&quot;.&quot;</span><span class="hl-1">,      </span><span class="hl-7">// first parameter of cli</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;port&quot;</span><span class="hl-1">: 3000,       </span><span class="hl-7">// --port n</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;maxCacheSize&quot;</span><span class="hl-1">: 0,  </span><span class="hl-7">// --max-cache-size n</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;join&quot;</span><span class="hl-1">: </span><span class="hl-3">&quot;/join&quot;</span><span class="hl-1">,    </span><span class="hl-7">// --join /join</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;leave&quot;</span><span class="hl-1">: </span><span class="hl-3">&quot;/leave&quot;</span><span class="hl-1">,  </span><span class="hl-7">// --leave /leave</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;plugins&quot;</span><span class="hl-1">: {},      </span><span class="hl-7">// --plugin path/to/plugin.js</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;spa&quot;</span><span class="hl-1">: </span><span class="hl-4">false</span><span class="hl-1">,       </span><span class="hl-7">// --spa</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;debug&quot;</span><span class="hl-1">: </span><span class="hl-4">false</span><span class="hl-1">,     </span><span class="hl-7">// --debug</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;ssl&quot;</span><span class="hl-1">: </span><span class="hl-8">undefined</span><span class="hl-1">,   </span><span class="hl-7">// --ssl</span><br/><span class="hl-1">}</span>
 </code><button type="button">Copy</button></pre>
 
           <p>
             You can also check the resulting <code>server.config</code> after
             the server has started.
           </p>
-          <h2 id="plugins" class="tsd-anchor-link">
-            Plugins<a
-              href="#plugins"
-              aria-label="Permalink"
-              class="tsd-anchor-icon"
-              ><svg viewBox="0 0 24 24" aria-hidden="true">
-                <use href="assets/icons.svg#icon-anchor"></use></svg
-            ></a>
-          </h2>
-          <p>
-            To use plugins, you can import the <code>chef-socket</code> package
-            and include the desired plugin. Here's an example:
-          </p>
-          <pre><code class="ts"><span class="hl-4">const</span><span class="hl-2"> </span><span class="hl-8">cook</span><span class="hl-2"> = </span><span class="hl-1">require</span><span class="hl-2">(</span><span class="hl-3">&quot;chef-socket&quot;</span><span class="hl-2">); </span><span class="hl-0">// or chef-uws</span><br/><span class="hl-4">const</span><span class="hl-2"> </span><span class="hl-8">chat</span><span class="hl-2"> = </span><span class="hl-1">require</span><span class="hl-2">(</span><span class="hl-3">&quot;chef-core/chat&quot;</span><span class="hl-2">);</span><br/><br/><span class="hl-1">cook</span><span class="hl-2">({ </span><span class="hl-7">plugins:</span><span class="hl-2"> { </span><span class="hl-7">chat</span><span class="hl-2"> } }).</span><span class="hl-1">then</span><span class="hl-2">((</span><span class="hl-7">server</span><span class="hl-2">) </span><span class="hl-4">=&gt;</span><span class="hl-2"> {</span><br/><span class="hl-2">  </span><span class="hl-7">console</span><span class="hl-2">.</span><span class="hl-1">log</span><span class="hl-2">(</span><span class="hl-7">server</span><span class="hl-2">.</span><span class="hl-7">config</span><span class="hl-2">);</span><br/><span class="hl-2">});</span>
-</code><button type="button">Copy</button></pre>
-
           <h2 id="license" class="tsd-anchor-link">
             License<a
               href="#license"
@@ -225,7 +277,7 @@
                 <use href="assets/icons.svg#icon-anchor"></use></svg
             ></a>
           </h2>
-          <p>This project is licensed under the MIT License.</p>
+          <p>MIT</p>
         </div>
       </div>
       <div class="col-sidebar">
@@ -377,14 +429,22 @@
               >
               <ul>
                 <li>
-                  <a href="#static-serve-folder"
-                    ><span>Static <wbr />Serve <wbr />Folder</span></a
-                  >
+                  <a href="#start-cooking"><span>start cooking!</span></a>
                 </li>
                 <li>
-                  <a href="#chat-demo"
-                    ><span>Chat <wbr />Demo</span></a
-                  >
+                  <a href="#express"><span>Express</span></a>
+                </li>
+                <li>
+                  <a href="#socket"><span>Socket</span></a>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#demo-with-chat-plugin"
+                        ><span>demo (with chat plugin)</span></a
+                      >
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <a href="#api-documentation"
@@ -393,9 +453,6 @@
                 </li>
                 <li>
                   <a href="#configuration"><span>Configuration</span></a>
-                </li>
-                <li>
-                  <a href="#plugins"><span>Plugins</span></a>
                 </li>
                 <li>
                   <a href="#license"><span>License</span></a>

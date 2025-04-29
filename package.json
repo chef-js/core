@@ -1,6 +1,6 @@
 {
   "name": "chef-core",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "description": "static file server chef-js core functionalities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,9 +23,12 @@
     "https-server"
   ],
   "scripts": {
+    "docs-from-main-macos": "find docs -type f -name '*.html' -exec sed -i '' -r 's_/blob/[^/]+/_/blob/main/_g' {} +",
+    "docs-from-main-linux": "find docs -type f -name '*.html' -exec sed -i -r 's_/blob/[^/]+/_/blob/main/_g' {} +",
+    "build:docs": "typedoc",
+    "postbuild:docs": "yarn docs-from-main-macos || yarn docs-from-main-linux",
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "build:docs": "typedoc",
     "pretest": "yarn build",
     "test": "jest",
     "format": "prettier . --write",
