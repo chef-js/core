@@ -10,11 +10,15 @@ const fs_1 = require("fs");
 const config_1 = __importDefault(require("../config"));
 const path_1 = require("path");
 const mime_types_1 = require("mime-types");
-const readFile = (path) => {
+const readFile = (path, mime = "text/plain") => {
   try {
-    return (0, fs_1.readFileSync)(path, { encoding: "utf8" }) || "";
+    if (mime.startsWith("text")) {
+      return (0, fs_1.readFileSync)(path, { encoding: "utf8" });
+    } else {
+      return (0, fs_1.readFileSync)(path);
+    }
   } catch (_err) {
-    return "<html></html>";
+    return "";
   }
 };
 const getMimeFromURL = (url) =>
@@ -28,9 +32,6 @@ function createFileReader(folder) {
     const url = inputURL || indexURL;
     const mime = getMimeFromURL(url);
     const filename = (0, path_1.join)(folder, url);
-    if (config_1.default.debug) {
-      console.log(filename);
-    }
     if (!(0, fs_1.existsSync)(filename)) {
       if (config_1.default.spa) {
         return { mime: "text/html", body: indexHTML, status: 200 };
@@ -41,6 +42,7 @@ function createFileReader(folder) {
     if ((0, fs_1.lstatSync)(filename).isDirectory()) {
       return fileReader(`${url}/index.html`);
     }
-    return { mime, body: readFile(filename), status: 200 };
+    const body = readFile(filename, mime);
+    return { mime, body, status: 200 };
   };
 }

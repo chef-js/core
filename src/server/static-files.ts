@@ -5,11 +5,15 @@ import config from "../config";
 import { join } from "path";
 import { lookup } from "mime-types";
 
-const readFile = (path: string) => {
+const readFile = (path: string, mime = "text/plain") => {
   try {
-    return readFileSync(path, { encoding: "utf8" }) || "";
+    if (mime.startsWith("text")) {
+      return readFileSync(path, { encoding: "utf8" });
+    } else {
+      return readFileSync(path);
+    }
   } catch (_err) {
-    return "<html></html>";
+    return "";
   }
 };
 
@@ -27,10 +31,6 @@ export default function createFileReader(folder: string): FileReader {
     const mime = getMimeFromURL(url);
     const filename = join(folder, url);
 
-    if (config.debug) {
-      console.log(filename);
-    }
-
     if (!existsSync(filename)) {
       if (config.spa) {
         return { mime: "text/html", body: indexHTML, status: 200 };
@@ -43,6 +43,8 @@ export default function createFileReader(folder: string): FileReader {
       return fileReader(`${url}/index.html`);
     }
 
-    return { mime, body: readFile(filename), status: 200 };
+    const body = readFile(filename, mime);
+
+    return { mime, body, status: 200 };
   };
 }
